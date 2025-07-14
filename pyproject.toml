@@ -1,0 +1,27 @@
+[tool.poetry]
+name        = "pumpkinbot"
+version     = "0.1.0"
+description = "서강대 도서관 크롤러 & 챗봇 백엔드"
+readme      = "README.md"
+authors     = ["neulbokim <twinsister1@naver.com>"]
+
+# ── 여기에 packages 배열을 직접 넣습니다 ──
+packages = [
+  { include = "app", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python          = ">=3.9,<4.0"
+requests        = ">=2.32.4,<3.0.0"
+beautifulsoup4  = ">=4.13.4,<5.0.0"
+pyyaml          = ">=6.0.2,<7.0.0"
+python-dotenv   = ">=1.1.1,<2.0.0"
+apscheduler     = ">=3.11.0,<4.0.0"
+
+[tool.poetry.scripts]
+crawl-menu      = "app.crawler.menu:main"
+crawl-detail    = "app.crawler.detail:main"
+
+[build-system]
+requires      = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
