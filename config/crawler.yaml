@@ -1,0 +1,84 @@
+base_url: "https://library.sogang.ac.kr"
+
+# 저장 디렉터리 설정
+save_directory: "database/raw"
+
+# 저장할 파일명 설정
+filenames:
+  menu: "menu_data.json"
+  detail: "detail_data.json"
+
+menus:
+  css_selector: "#divHeader .wholeMenu ul > li[class^='wholeMenu']"
+  category:
+    tag: "a"
+    attr: "title"
+  subcategory:
+    selector: "ul"
+    tag: "a"
+    attr: "title"
+
+detail:
+    # 1) 공통 컨테이너
+    raw_container: "#divContent"
+
+    # 2) 일반 텍스트 블록: 컨테이너 내 자주 쓰이는 조합(tag+class)을 모두 나열
+    text_blocks:
+      - parent:
+          tag: "div"
+          class: "dataSearch"
+        extract:
+          tag: "p"
+          class: ""          # 모든 <p> 텍스트
+      - parent:
+          tag: "div"
+          class: "detailSearchBox"
+        extract:
+          tag: "fieldset"
+          class: ""
+      - parent:
+          tag: "div"
+          class: "languageContent"
+        extract:
+          tag: "a"
+          class: ""          # 다국어 입력 팝업 텍스트
+
+    # 3) 테이블 블록: divContent 아래 모든 <table>을 잡음
+    tables:
+      - parent:
+          tag: "div"
+          class: "dataSearch"
+        table_tag: "table"
+      - parent:
+          tag: "div"
+          class: "detailSearchBox"
+        table_tag: "table"
+
+    # 4) QnA 블록(있는 곳만)
+    qna:
+      parent:
+        tag: "div"
+        class: "qnaContainer"   # 예시: 실제 class 이름에 맞게 수정
+      question: "h3.question"
+      answer:   "div.answer"
+
+    # 5) 페이지별 특수 처리
+    page_types:
+      thesis:
+        detect: "div.thesisMeta"  # 학위논문 메타정보 영역
+        extract:
+          # 예: 제목·저자 뽑기
+          - field: "author"
+            selector: "span.authorName"
+          - field: "advisor"
+            selector: "span.advisorName"
+      ejournal:
+        detect: "div.journalInfo"
+        extract:
+          - field: "ISSN"
+            selector: "span.issn"
+          - field: "publisher"
+            selector: "span.publisher"
+
+    # 6) 탭 처리
+    tab_selector: "#mTS_1_container li.mTSThumbContainer a"

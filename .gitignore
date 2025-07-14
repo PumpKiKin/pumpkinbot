@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry virtualenv
+.venv/
+poetry.lock
+
+# VSCode settings
+.vscode/
+
+# IDE settings
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Environment variables
+.env
+
+# YAML lock or cache (if any)
+*.lock
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Database/raw 폴더 (크롤링 데이터는 버전관리 제외)
+# database/raw/*.json
+
+# 파이썬 패키지 디스트리뷰션
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS, editor temp files
+*~
+*.swp

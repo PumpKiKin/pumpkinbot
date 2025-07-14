@@ -1,0 +1,506 @@
+[
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "통합검색",
+    "url": "https://library.sogang.ac.kr/searchTotal?mId=10101000"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "소장자료검색",
+    "url": "https://library.sogang.ac.kr/search/toc"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "전자자료검색",
+    "url": "https://library.sogang.ac.kr/search/dla"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "학술논문(Articles)검색",
+    "url": "https://library.sogang.ac.kr/eds/advanced"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "참고문헌검색",
+    "url": "https://library.sogang.ac.kr/local/html/citationLinker"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "전자저널",
+    "url": "https://library.sogang.ac.kr/searchA/ejz"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "학술DB",
+    "url": "https://library.sogang.ac.kr/datalist/ejs/list"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "전자책",
+    "url": "https://library.sogang.ac.kr/searchA/ebz"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "동영상 강좌",
+    "url": "https://library.sogang.ac.kr/datalist/vod/list"
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "멀티미디어자료",
+    "url": "https://library.sogang.ac.kr/newarrival/maz"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "인기자료",
+    "url": "https://library.sogang.ac.kr/favorloan/main?type=NEAR_MONTH&count=20"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "신착자료",
+    "url": "https://library.sogang.ac.kr/newarrival"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "로욜라 큐레이션",
+    "url": "https://library.sogang.ac.kr/myrecom/main"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "서강필독서",
+    "url": "https://library.sogang.ac.kr/digicol/list/1"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "본교교수 저작물",
+    "url": "https://library.sogang.ac.kr/digicol/list/42"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "CGSI 기억연구 자료",
+    "url": "https://library.sogang.ac.kr/digicol/list/41"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "학위논문",
+    "url": "https://dcollection.sogang.ac.kr/dcollection/"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "취업ㆍ창업도서",
+    "url": "https://library.sogang.ac.kr/digicol/list/2"
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "학술원 우수학술도서",
+    "url": "https://library.sogang.ac.kr/digicol/list/82"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "지정자료",
+    "title": "지정자료검색",
+    "url": "https://library.sogang.ac.kr/coursereserves/search/alpa"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "지정자료",
+    "title": "지정자료신청",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/81"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/3"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육일정",
+    "url": "https://library.sogang.ac.kr/libsch/mixMonthlyCalendar/1"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "정규교육신청",
+    "url": "https://library.sogang.ac.kr/education/list"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "맞춤교육신청",
+    "url": "https://library.sogang.ac.kr/edusupp/write"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육자료",
+    "url": "https://library.sogang.ac.kr/bbs/list/5"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "연구가이드",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "핵심 전자자료 가이드",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "표절예방시스템 Turnitin",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/7"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "참고문헌관리 EndNote / RefWorks",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/2163621"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "학위논문제출",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/9"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "등재 학술지 리스트",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/501"
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "OA 출판 및 APC(논문출판비용) 지원",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5618421"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "자료 대출 반납 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/10"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "전자자료 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/13"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "희망자료 신청",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/16"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 대출",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/17"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 복사",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/18"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "서가에 없는 자료",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/19"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "개관시간",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/20"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "일반열람실 및 스터디룸 이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/21"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "전시 및 행사 공간 이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/26"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "라파엘 라이브 스튜디오 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4179621"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "캐럴 이용 신청",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/28"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "복사 출력 스캔 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/29"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "무선랜 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/30"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "모바일 이용증 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/31"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "타도서관 이용 신청",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/32"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "학생",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/33"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "교직원",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/34"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "졸업생",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/35"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "도서관회원",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/36"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "협정기관",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/37"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "장애인",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/38"
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "기타",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/39"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "연혁",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/40"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "자료현황",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/41"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "시설현황",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/42"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "조직 및 업무별 연락처",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/43"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "규정",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/44"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "비전",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/45"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "오시는 길 / 층별 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/83"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "도서관 홍보물",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/241"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "분관 안내",
+    "title": "법학전문도서관",
+    "url": "https://library.sogang.ac.kr/law"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "공지사항",
+    "url": "https://library.sogang.ac.kr/bbs/list/1"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "FAQ",
+    "url": "https://library.sogang.ac.kr/faqlib/faq"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "문의 및 건의",
+    "url": "https://library.sogang.ac.kr/bbs/list/49"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "분실물 찾기",
+    "url": "https://library.sogang.ac.kr/bbs/list/50"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "각종 양식 다운로드",
+    "url": "https://library.sogang.ac.kr/bbs/list/6"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "도서관 기부",
+    "title": "로욜라원프로젝트",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/48"
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "도서관 기부",
+    "title": "자료 기증",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/49"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "대출 조회 및 연장, 분실신고",
+    "url": "https://library.sogang.ac.kr/myloan/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "예약내역 조회",
+    "url": "https://library.sogang.ac.kr/myreserve/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "희망자료 신청내역",
+    "url": "https://library.sogang.ac.kr/purchaserequest/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 대출 조회",
+    "url": "https://library.sogang.ac.kr/ill/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 복사 조회",
+    "url": "https://library.sogang.ac.kr/dds/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "서가에 없는 자료 신고 조회",
+    "url": "https://library.sogang.ac.kr/missrepo/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "타 도서관 이용 신청 조회",
+    "url": "https://library.sogang.ac.kr/otherlib/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "정보활용교육 신청 조회",
+    "url": "https://library.sogang.ac.kr/education/applyList"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "온라인 1:1 서비스 신청 조회",
+    "url": "https://library.sogang.ac.kr/req/mylist/1"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "메시지함",
+    "url": "https://library.sogang.ac.kr/mynotice/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "내서재",
+    "url": "https://library.sogang.ac.kr/mylist/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "내서평",
+    "url": "https://library.sogang.ac.kr/myreview/list"
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "개인정보/비밀번호 관리",
+    "url": "https://library.sogang.ac.kr/myprofile/relogin"
+  }
+]
