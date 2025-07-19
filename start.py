@@ -100,7 +100,7 @@ def get_rag_chain() -> Runnable:
     응답:"""
 
     custom_rag_prompt = PromptTemplate.from_template(template)
-    model = ChatOpenAI(model="gpt-4o-mini")
+    model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
 
     return custom_rag_prompt | model | StrOutputParser()
 
@@ -139,9 +139,52 @@ def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
-    st.text(dotenv_values(".env"))
-    st.text("셋팅완료")
+    # st.text(dotenv_values(".env"))
+    # st.text("셋팅완료")
+    st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
 
+    left_column, right_column = st.columns([1, 1])
+    with left_column:
+        st.header("로욜라도서관 FAQ 챗봇")
+        pdf_doc = st.file_uploader("PDF Uploader", type="pdf")
+        button = st.button("PDF 업로드하기")
+        if pdf_doc and button:
+            with st.spinner("PDF 문서 저장 중"):
+                st.text("여기까지 구현됨")
+                pdf_path = save_uploadedfile(pdf_doc)
+                pdf_document = pdf_to_documents(pdf_path)
+                smaller_documents = chunk_documents(pdf_document)
+                save_to_vector_store(smaller_documents)
+        
+        user_question = st.text_input("PDF 문서에 대해서 질문해 주세요", 
+                                    placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
+        
+        if user_question:
+            response, context = process_question(user_question)
+            st.text(response)
+            # st.text(context)
+            for document in context:
+                with st.expander("관련 문서"):
+                    st. text(document.page_content)
+                    file_path = document.metadata.get('source', '')
+                    page_number = document.metadata.get('page', 0) + 1
+                    button_key = f"lint_{file_path}_{page_number}"
+                    refreence_button = st.button(f"{os.path.basename(file_path)} pg.{page_number}", key=button_key)
+                    if refreence_button:
+                        st.session_state.page_number = str(page_number)
+    
+    with right_column:
+        # page_number 호출
+        page_number = st.session_state.get('page_number')
+        if page_number:
+            page_number = int(page_number)
+            image_folder = "pdf_이미지"
+            images = sorted(os.listdir(image_folder), key=natural_sort_key)
+            print(images)
+            image_paths = [os.path.join(image_folder, image) for image in images]
+            print(page_number)
+            print(image_paths[page_number - 1])
+            display_pdf_page(image_paths[page_number - 1], page_number)
 
 if __name__ == "__main__":
     main()
