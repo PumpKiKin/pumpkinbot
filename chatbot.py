@@ -1,9 +1,6 @@
-
-
 ## streamlit 관련 모듈 불러오기
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
-
 
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.documents.base import Document
@@ -18,7 +15,7 @@ import os
 import fitz  # PyMuPDF
 import re
 
-# pdf to json을 위한 import
+## json 관련 모듈 불러오기
 import json
 
 
@@ -32,23 +29,13 @@ load_dotenv()
 
 ## 1: 임시폴더에 파일 저장
 def save_uploadedfile(uploadedfile: UploadedFile) -> str : 
-    temp_dir = "PDF_임시폴더"
+    temp_dir = "JSON_임시폴더"
     if not os.path.exists(temp_dir):
         os.makedirs(temp_dir)
     file_path = os.path.join(temp_dir, uploadedfile.name)
     with open(file_path, "wb") as f:
         f.write(uploadedfile.read()) 
     return file_path
-
-## 2: 저장된 PDF 파일을 Document로 변환
-# def pdf_to_documents(pdf_path:str) -> List[Document]:
-#     documents = []
-#     loader = PyMuPDFLoader(pdf_path)
-#     doc = loader.load()
-#     for d in doc:
-#         d.metadata['file_path'] = pdf_path
-#     documents.extend(doc)
-#     return documents
 
 ## 2: 저장된 JSON 파일을 Document로 변환
 def json_to_documents(json_path:str) -> List[Document]:
@@ -64,16 +51,16 @@ def json_to_documents(json_path:str) -> List[Document]:
         # elif isinstance(content, dict):
         #     content = "\n".join(f"{key}:{value}" for key, value in content.items())
 
-         # 리스트 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
+         # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
         if isinstance(content, list):
             content = "\n".join(
                 [elem if isinstance(elem, str) else json.dumps(elem, ensure_ascii=False) for elem in content]
             )
-        # 딕셔너리 처리: key: value 형식으로 변환
+        # dice 처리: key: value 형식으로 변환
         elif isinstance(content, dict):
             content = "\n".join(f"{key}: {value}" for key, value in content.items())
 
-
+        # metadata 불러오기(.json의 구조를 참고해야 함)
         metadata = {
             "category": item.get("category", ""),
             "subcategory": item.get("subcategory", ""),
@@ -83,8 +70,6 @@ def json_to_documents(json_path:str) -> List[Document]:
         documents.append(Document(page_content=content, metadata=metadata))
 
     return documents
-
-
 
 ## 3: Document를 더 작은 document로 변환
 def chunk_documents(documents: List[Document]) -> List[Document]:
@@ -148,31 +133,31 @@ def get_rag_chain() -> Runnable:
 
 ############################### 3단계 : 응답결과와 문서를 함께 보도록 도와주는 함수 ##########################
 @st.cache_data(show_spinner=False)
-def convert_pdf_to_images(pdf_path: str, dpi: int = 250) -> List[str]:
-    doc = fitz.open(pdf_path)  # 문서 열기
-    image_paths = []
+# def convert_pdf_to_images(pdf_path: str, dpi: int = 250) -> List[str]:
+#     doc = fitz.open(pdf_path)  # 문서 열기
+#     image_paths = []
     
-    # 이미지 저장용 폴더 생성
-    output_folder = "PDF_이미지"
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+#     # 이미지 저장용 폴더 생성
+#     output_folder = "PDF_이미지"
+#     if not os.path.exists(output_folder):
+#         os.makedirs(output_folder)
 
-    for page_num in range(len(doc)):  #  각 페이지를 순회
-        page = doc.load_page(page_num)  # 페이지 로드
+#     for page_num in range(len(doc)):  #  각 페이지를 순회
+#         page = doc.load_page(page_num)  # 페이지 로드
 
-        zoom = dpi / 72  # 72이 디폴트 DPI
-        mat = fitz.Matrix(zoom, zoom)
-        pix = page.get_pixmap(matrix=mat) # type: ignore
+#         zoom = dpi / 72  # 72이 디폴트 DPI
+#         mat = fitz.Matrix(zoom, zoom)
+#         pix = page.get_pixmap(matrix=mat) # type: ignore
 
-        image_path = os.path.join(output_folder, f"page_{page_num + 1}.png")  # 페이지 이미지 저장 page_1.png, page_2.png, etc.
-        pix.save(image_path)  # PNG 형태로 저장
-        image_paths.append(image_path)  # 경로를 저장
+#         image_path = os.path.join(output_folder, f"page_{page_num + 1}.png")  # 페이지 이미지 저장 page_1.png, page_2.png, etc.
+#         pix.save(image_path)  # PNG 형태로 저장
+#         image_paths.append(image_path)  # 경로를 저장
         
-    return image_paths
+#     return image_paths
 
-def display_pdf_page(image_path: str, page_number: int) -> None:
-    image_bytes = open(image_path, "rb").read()  # 파일에서 이미지 인식
-    st.image(image_bytes, caption=f"Page {page_number}", output_format="PNG", width=600)
+# def display_pdf_page(image_path: str, page_number: int) -> None:
+#     image_bytes = open(image_path, "rb").read()  # 파일에서 이미지 인식
+#     st.image(image_bytes, caption=f"Page {page_number}", output_format="PNG", width=600)
 
 
 def natural_sort_key(s):
@@ -186,12 +171,11 @@ def main():
     left_column, right_column = st.columns([1, 1])
     with left_column:
         st.header("로욜라도서관 FAQ 챗봇")
-        # pdf_doc = st.file_uploader("PDF Uploader", type="pdf")
         json_file = st.file_uploader("JSON Uploader", type="json")
         button = st.button("JSON 업로드하기")
         if json_file and button:
             with st.spinner("JSON 문서 저장 중"):
-                st.text("여기까지 구현됨")
+                # st.text("여기까지 구현됨")
                 json_path = save_uploadedfile(json_file)
                 json_document = json_to_documents(json_path)
                 smaller_documents = chunk_documents(json_document)
@@ -208,24 +192,27 @@ def main():
             for document in context:
                 with st.expander("관련 문서"):
                     st. text(document.page_content)
-                    file_path = document.metadata.get('source', '')
-                    page_number = document.metadata.get('page', 0) + 1
-                    button_key = f"lint_{file_path}_{page_number}"
-                    refreence_button = st.button(f"{os.path.basename(file_path)} pg.{page_number}", key=button_key)
-                    if refreence_button:
-                        st.session_state.page_number = str(page_number)
+                    # file_path = document.metadata.get('source', '')
+                    # page_number = document.metadata.get('page', 0) + 1
+                    # button_key = f"lint_{file_path}_{page_number}"
+                    # refreence_button = st.button(f"{os.path.basename(file_path)} pg.{page_number}", key=button_key)
+
+                    # button_key = f"lint_{file_path}"
+                    # refreence_button = st.button(f"{os.path.basename(file_path)}", key=button_key)
+                    # if refreence_button:
+                    #     st.session_state.page_number = str(page_number)
     
         # page_number 호출 ////// 이미지 대신 링크를 첨부하게 만들면 괜찮을 것 같다.
-        page_number = st.session_state.get('page_number')
-        if page_number:
-            page_number = int(page_number)
-            image_folder = "pdf_이미지"
-            images = sorted(os.listdir(image_folder), key=natural_sort_key)
-            print(images)
-            image_paths = [os.path.join(image_folder, image) for image in images]
-            print(page_number)
-            print(image_paths[page_number - 1])
-            display_pdf_page(image_paths[page_number - 1], page_number)
+        # page_number = st.session_state.get('page_number')
+        # if page_number:
+        #     page_number = int(page_number)
+        #     image_folder = "pdf_이미지"
+        #     images = sorted(os.listdir(image_folder), key=natural_sort_key)
+        #     print(images)
+        #     image_paths = [os.path.join(image_folder, image) for image in images]
+        #     print(page_number)
+        #     print(image_paths[page_number - 1])
+        #     display_pdf_page(image_paths[page_number - 1], page_number)
 
 if __name__ == "__main__":
     main()
