@@ -126,8 +126,9 @@ def get_rag_chain() -> Runnable:
 
     custom_rag_prompt = PromptTemplate.from_template(template)
     model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
+    # model - ChatAnthropic(model="claude-3-5-sonnet-20240620") # 이런 식으로(Claude)
 
-    return custom_rag_prompt | model | StrOutputParser()
+    return custom_rag_prompt | model | StrOutputParser() # pipe로 관리하여 in-out 쉽게 넣어주기
 
 
 
@@ -168,7 +169,7 @@ def main():
     # st.text("셋팅완료")
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
 
-    left_column, right_column = st.columns([1, 1])
+    left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
     with left_column:
         st.header("로욜라도서관 FAQ 챗봇")
         json_file = st.file_uploader("JSON Uploader", type="json")
@@ -191,7 +192,8 @@ def main():
             # st.text(context)
             for document in context:
                 with st.expander("관련 문서"):
-                    st. text(document.page_content)
+                    st.text(document.page_content)
+                    st.text(document.metadata.get('url', ''))
                     # file_path = document.metadata.get('source', '')
                     # page_number = document.metadata.get('page', 0) + 1
                     # button_key = f"lint_{file_path}_{page_number}"
