@@ -5,9 +5,11 @@ save_directory: "database/raw"
 
 # 저장할 파일명 설정
 filenames:
-  menu: "menu_data.json"
+  menu:   "menu_data.json"
   detail: "detail_data.json"
 
+# ───────────────────────────────────────────────────────────────
+# 메뉴 크롤링 설정
 menus:
   css_selector: "#divHeader .wholeMenu ul > li[class^='wholeMenu']"
   category:
@@ -18,67 +20,89 @@ menus:
     tag: "a"
     attr: "title"
 
+# ───────────────────────────────────────────────────────────────
 detail:
-    # 1) 공통 컨테이너
-    raw_container: "#divContent"
+  raw_container: "#divContent"
+  tab_container: "#divTabMenu"
+  tab_selector:  "li.selected a"              # 기존 메인 탭
+  inner_tab_container: "#divTabMenu"
+  inner_tab_selector: "ul#mTS_1_container.mTSContainer li.mTSThumbContainer a"  # 내부 탭
+  
 
-    # 2) 일반 텍스트 블록: 컨테이너 내 자주 쓰이는 조합(tag+class)을 모두 나열
-    text_blocks:
-      - parent:
-          tag: "div"
-          class: "dataSearch"
-        extract:
-          tag: "p"
-          class: ""          # 모든 <p> 텍스트
-      - parent:
-          tag: "div"
-          class: "detailSearchBox"
-        extract:
-          tag: "fieldset"
-          class: ""
-      - parent:
-          tag: "div"
-          class: "languageContent"
-        extract:
-          tag: "a"
-          class: ""          # 다국어 입력 팝업 텍스트
+  # 탭 제목 아래 첫 단락과 강조 li.mBgn
+  intro_block:
+    section: from_title
+    selector: "h3.textBoxTitle + div.textBox2.type2 p, div.textBox2.type2 ul li.mBgn"
 
-    # 3) 테이블 블록: divContent 아래 모든 <table>을 잡음
-    tables:
-      - parent:
-          tag: "div"
-          class: "dataSearch"
-        table_tag: "table"
-      - parent:
-          tag: "div"
-          class: "detailSearchBox"
-        table_tag: "table"
+  list_sections:
+    # 1) 탭 제목(h3.textBoxTitle) 아래 첫 단락(p)과 강조된 li.mBgn
+    - name_from: "h3.textBoxTitle"
+      selector:  "p, ul li.mBgn"
+      drilldown: false
 
-    # 4) QnA 블록(있는 곳만)
-    qna:
-      parent:
-        tag: "div"
-        class: "qnaContainer"   # 예시: 실제 class 이름에 맞게 수정
-      question: "h3.question"
-      answer:   "div.answer"
+    # 2) 소제목 아래 div.pdl14.mb17(이용안내 등)
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "div.pdl14.mb17"
+      drilldown: false
 
-    # 5) 페이지별 특수 처리
-    page_types:
-      thesis:
-        detect: "div.thesisMeta"  # 학위논문 메타정보 영역
-        extract:
-          # 예: 제목·저자 뽑기
-          - field: "author"
-            selector: "span.authorName"
-          - field: "advisor"
-            selector: "span.advisorName"
-      ejournal:
-        detect: "div.journalInfo"
-        extract:
-          - field: "ISSN"
-            selector: "span.issn"
-          - field: "publisher"
-            selector: "span.publisher"
+    # 3) 모든 소제목(h3.titleStyle1 또는 h4.titleStyle1) 아래 일반 리스트(ul.pdl14)
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "ul.pdl14"
+      drilldown: false
 
-    # 6) 탭 처리
-    tab_selector: "#mTS_1_container li.mTSThumbContainer a"
+    # 4) 동일 소제목 아래 drill-down 링크 목록(ul.subjectGuide)
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "ul.subjectGuide"
+      drilldown: true
+
+    # 5) 동일 소제목(h3.titleStyle1, h4.titleStyle1) 또는 h3.skip 아래 guideTable 전체
+    - name_from: "h3.titleStyle1, h4.titleStyle1, h3.skip"
+      selector:  "div.guideTable.type2"
+      drilldown: false
+
+    # 6) OA 효과 영역(.oaGuide) 안의 추가 리스트
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "div.oaGuide ul li.listStyle5"
+      drilldown: false
+    
+    # 7) “이용 가이드” 처럼 <p class="listStyle5"> 텍스트
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "p.listStyle5"
+      drilldown: false
+
+    # 8) 다운로드 버튼 링크 (EndNote 이용매뉴얼 등)
+    - name_from: "h3.titleStyle1, h4.titleStyle1"
+      selector:  "div.downLoadBox2 a, div.downLoadBox a"
+      drilldown: false
+    
+    # — “타도서관 이용 안내” 아래 일반 리스트(li.listStyle5) —
+    - name_from: "h3.titleStyle1"
+      selector:  "ul.pdl14 li.listStyle5"
+      drilldown: false
+
+    # — “도서관열람의뢰서 신청 및 출력” 아래 번호 매겨진 리스트 —
+    - name_from: "h3.titleStyle1"
+      selector:  "ul.numListWrap2.pdl14 li"
+      drilldown: false
+
+  drilldown:
+    from_list:     "ul.subjectGuide"
+    link_selector: "li a"
+    child_intro:   "div.textBox2.type2 ul li.mBgn"
+    child_table:   "div.guideTable.type2 table"
+
+  tables:
+    - section: "교육안내"
+      selector: "div.guideTable.type2 table"
+    - section: "컬렉션 정보"
+      selector: "div.collectionTable table"
+
+  contacts:
+    selector:     "div.contact2"
+    label_from:   "span"
+    field_spans:  "ul > li > span"
+    strip_prefix: ":"
+    strip_tel:    true
+
+  secondary_tabs_selector:    "div#divTabMenu2 ul li"
+  secondary_content_selector: "ul.por.type > li"
