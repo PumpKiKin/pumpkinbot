@@ -18,10 +18,22 @@ import re
 ## json 관련 모듈 불러오기
 import json
 
+## Gemini 
+# import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
+# import asyncio
+# try:
+#     asyncio.get_event_loop()
+# except RuntimeError:
+#     asyncio.set_event_loop(asyncio.new_event_loop())
 
 ## 환경변수 불러오기
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
+GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
+# genai.configure(api_key=GOOGLE_API_KEY)
 
 
 
@@ -78,7 +90,8 @@ def chunk_documents(documents: List[Document]) -> List[Document]:
 
 ## 4: Document를 벡터DB로 저장
 def save_to_vector_store(documents: List[Document]) -> None:
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     vector_store = FAISS.from_documents(documents, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
@@ -92,8 +105,9 @@ def save_to_vector_store(documents: List[Document]) -> None:
 def process_question(user_question):
 
 
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    
+    # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
+
     ## 벡터 DB 호출
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
@@ -125,7 +139,10 @@ def get_rag_chain() -> Runnable:
     응답:"""
 
     custom_rag_prompt = PromptTemplate.from_template(template)
-    model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
+    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
+    # model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash",
+    #                                convert_system_message_to_human=True)
+    # model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
     # model - ChatAnthropic(model="claude-3-5-sonnet-20240620") # 이런 식으로(Claude)
 
     return custom_rag_prompt | model | StrOutputParser() # pipe로 관리하여 in-out 쉽게 넣어주기
@@ -134,33 +151,6 @@ def get_rag_chain() -> Runnable:
 
 ############################### 3단계 : 응답결과와 문서를 함께 보도록 도와주는 함수 ##########################
 @st.cache_data(show_spinner=False)
-# def convert_pdf_to_images(pdf_path: str, dpi: int = 250) -> List[str]:
-#     doc = fitz.open(pdf_path)  # 문서 열기
-#     image_paths = []
-    
-#     # 이미지 저장용 폴더 생성
-#     output_folder = "PDF_이미지"
-#     if not os.path.exists(output_folder):
-#         os.makedirs(output_folder)
-
-#     for page_num in range(len(doc)):  #  각 페이지를 순회
-#         page = doc.load_page(page_num)  # 페이지 로드
-
-#         zoom = dpi / 72  # 72이 디폴트 DPI
-#         mat = fitz.Matrix(zoom, zoom)
-#         pix = page.get_pixmap(matrix=mat) # type: ignore
-
-#         image_path = os.path.join(output_folder, f"page_{page_num + 1}.png")  # 페이지 이미지 저장 page_1.png, page_2.png, etc.
-#         pix.save(image_path)  # PNG 형태로 저장
-#         image_paths.append(image_path)  # 경로를 저장
-        
-#     return image_paths
-
-# def display_pdf_page(image_path: str, page_number: int) -> None:
-#     image_bytes = open(image_path, "rb").read()  # 파일에서 이미지 인식
-#     st.image(image_bytes, caption=f"Page {page_number}", output_format="PNG", width=600)
-
-
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
@@ -204,17 +194,5 @@ def main():
                     # if refreence_button:
                     #     st.session_state.page_number = str(page_number)
     
-        # page_number 호출 ////// 이미지 대신 링크를 첨부하게 만들면 괜찮을 것 같다.
-        # page_number = st.session_state.get('page_number')
-        # if page_number:
-        #     page_number = int(page_number)
-        #     image_folder = "pdf_이미지"
-        #     images = sorted(os.listdir(image_folder), key=natural_sort_key)
-        #     print(images)
-        #     image_paths = [os.path.join(image_folder, image) for image in images]
-        #     print(page_number)
-        #     print(image_paths[page_number - 1])
-        #     display_pdf_page(image_paths[page_number - 1], page_number)
-
 if __name__ == "__main__":
     main()
