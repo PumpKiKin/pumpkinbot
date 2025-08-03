@@ -1,39 +1,23 @@
-## streamlit 관련 모듈 불러오기
+## streamlit 모듈 불러오기
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.documents.base import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.schema.output_parser import StrOutputParser
-from langchain_community.document_loaders import PyMuPDFLoader
 from typing import List
 import os
-import fitz  # PyMuPDF
 import re
-
-## json 관련 모듈 불러오기
 import json
-
-## Gemini 
-# import google.generativeai as genai
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-
-# import asyncio
-# try:
-#     asyncio.get_event_loop()
-# except RuntimeError:
-#     asyncio.set_event_loop(asyncio.new_event_loop())
 
 ## 환경변수 불러오기
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
-GOOGLE_API_KEY=os.getenv("GOOGLE_API_KEY")
-# genai.configure(api_key=GOOGLE_API_KEY)
 
 
 
@@ -58,11 +42,6 @@ def json_to_documents(json_path:str) -> List[Document]:
     for i, item in enumerate(data):
         content = item.get("description", "")
         
-        # if isinstance(content, list):
-        #     content = "\n".join(content)
-        # elif isinstance(content, dict):
-        #     content = "\n".join(f"{key}:{value}" for key, value in content.items())
-
          # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
         if isinstance(content, list):
             content = "\n".join(
@@ -90,8 +69,7 @@ def chunk_documents(documents: List[Document]) -> List[Document]:
 
 ## 4: Document를 벡터DB로 저장
 def save_to_vector_store(documents: List[Document]) -> None:
-    # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
+    embeddings = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-nli")
     vector_store = FAISS.from_documents(documents, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
@@ -104,9 +82,7 @@ def save_to_vector_store(documents: List[Document]) -> None:
 @st.cache_data
 def process_question(user_question):
 
-
-    # embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
+    embeddings = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-nli")
 
     ## 벡터 DB 호출
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
@@ -139,12 +115,7 @@ def get_rag_chain() -> Runnable:
     응답:"""
 
     custom_rag_prompt = PromptTemplate.from_template(template)
-    model = ChatGoogleGenerativeAI(model="gemini-pro", temperature=0)
-    # model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash",
-    #                                convert_system_message_to_human=True)
-    # model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
-    # model - ChatAnthropic(model="claude-3-5-sonnet-20240620") # 이런 식으로(Claude)
-
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
     return custom_rag_prompt | model | StrOutputParser() # pipe로 관리하여 in-out 쉽게 넣어주기
 
 
@@ -184,15 +155,6 @@ def main():
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
                     st.text(document.metadata.get('url', ''))
-                    # file_path = document.metadata.get('source', '')
-                    # page_number = document.metadata.get('page', 0) + 1
-                    # button_key = f"lint_{file_path}_{page_number}"
-                    # refreence_button = st.button(f"{os.path.basename(file_path)} pg.{page_number}", key=button_key)
 
-                    # button_key = f"lint_{file_path}"
-                    # refreence_button = st.button(f"{os.path.basename(file_path)}", key=button_key)
-                    # if refreence_button:
-                    #     st.session_state.page_number = str(page_number)
-    
 if __name__ == "__main__":
     main()
