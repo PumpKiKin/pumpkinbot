@@ -1,23 +1,19 @@
-## streamlit 관련 모듈 불러오기
+## streamlit 모듈 불러오기
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.documents.base import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.schema.output_parser import StrOutputParser
-from langchain_community.document_loaders import PyMuPDFLoader
 from typing import List
 import os
-import fitz  # PyMuPDF
 import re
-
-## json 관련 모듈 불러오기
 import json
-
 
 ## 환경변수 불러오기
 from dotenv import load_dotenv,dotenv_values
@@ -27,7 +23,7 @@ load_dotenv()
 
 ############################### 1단계 : JSON 문서를 벡터DB에 저장하는 함수들 ##########################
 
-## 1: 임시폴더에 파일 저장
+## 1: 임시폴더에 파일 저장, 이제 이 함수는 사용하지 않음(데이터 업로드 X, 내장 O)
 def save_uploadedfile(uploadedfile: UploadedFile) -> str : 
     temp_dir = "JSON_임시폴더"
     if not os.path.exists(temp_dir):
@@ -46,11 +42,6 @@ def json_to_documents(json_path:str) -> List[Document]:
     for i, item in enumerate(data):
         content = item.get("description", "")
         
-        # if isinstance(content, list):
-        #     content = "\n".join(content)
-        # elif isinstance(content, dict):
-        #     content = "\n".join(f"{key}:{value}" for key, value in content.items())
-
          # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
         if isinstance(content, list):
             content = "\n".join(
@@ -78,7 +69,7 @@ def chunk_documents(documents: List[Document]) -> List[Document]:
 
 ## 4: Document를 벡터DB로 저장
 def save_to_vector_store(documents: List[Document]) -> None:
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-nli")
     vector_store = FAISS.from_documents(documents, embedding=embeddings)
     vector_store.save_local("faiss_index")
 
@@ -91,9 +82,8 @@ def save_to_vector_store(documents: List[Document]) -> None:
 @st.cache_data
 def process_question(user_question):
 
+    embeddings = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-nli")
 
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    
     ## 벡터 DB 호출
     new_db = FAISS.load_local("faiss_index", embeddings, allow_dangerous_deserialization=True)
 
@@ -125,64 +115,38 @@ def get_rag_chain() -> Runnable:
     응답:"""
 
     custom_rag_prompt = PromptTemplate.from_template(template)
-    model = ChatOpenAI(model="gpt-4o-mini") # 모델 바꾸고 싶으면 이 부분만 바꾸면 됨.
-    # model - ChatAnthropic(model="claude-3-5-sonnet-20240620") # 이런 식으로(Claude)
-
+    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
     return custom_rag_prompt | model | StrOutputParser() # pipe로 관리하여 in-out 쉽게 넣어주기
 
 
 
 ############################### 3단계 : 응답결과와 문서를 함께 보도록 도와주는 함수 ##########################
 @st.cache_data(show_spinner=False)
-# def convert_pdf_to_images(pdf_path: str, dpi: int = 250) -> List[str]:
-#     doc = fitz.open(pdf_path)  # 문서 열기
-#     image_paths = []
-    
-#     # 이미지 저장용 폴더 생성
-#     output_folder = "PDF_이미지"
-#     if not os.path.exists(output_folder):
-#         os.makedirs(output_folder)
-
-#     for page_num in range(len(doc)):  #  각 페이지를 순회
-#         page = doc.load_page(page_num)  # 페이지 로드
-
-#         zoom = dpi / 72  # 72이 디폴트 DPI
-#         mat = fitz.Matrix(zoom, zoom)
-#         pix = page.get_pixmap(matrix=mat) # type: ignore
-
-#         image_path = os.path.join(output_folder, f"page_{page_num + 1}.png")  # 페이지 이미지 저장 page_1.png, page_2.png, etc.
-#         pix.save(image_path)  # PNG 형태로 저장
-#         image_paths.append(image_path)  # 경로를 저장
-        
-#     return image_paths
-
-# def display_pdf_page(image_path: str, page_number: int) -> None:
-#     image_bytes = open(image_path, "rb").read()  # 파일에서 이미지 인식
-#     st.image(image_bytes, caption=f"Page {page_number}", output_format="PNG", width=600)
-
-
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
-    # st.text(dotenv_values(".env"))
-    # st.text("셋팅완료")
+
+    if not os.path.exists("faiss_index"):
+        json_file = "database/test_data.json"
+        json_document = json_to_documents(json_file)
+        smaller_documents = chunk_documents(json_document)
+        save_to_vector_store(smaller_documents)
+
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
 
     left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
     with left_column:
         st.header("로욜라도서관 FAQ 챗봇")
-        json_file = st.file_uploader("JSON Uploader", type="json")
-        button = st.button("JSON 업로드하기")
-        if json_file and button:
-            with st.spinner("JSON 문서 저장 중"):
-                # st.text("여기까지 구현됨")
-                json_path = save_uploadedfile(json_file)
-                json_document = json_to_documents(json_path)
-                smaller_documents = chunk_documents(json_document)
-                save_to_vector_store(smaller_documents)
-        
-        user_question = st.text_input("JSON 문서에 대해서 질문해 주세요", 
+        # json_file = st.file_uploader("JSON Uploader", type="json")
+        # button = st.button("JSON 업로드하기")
+        # if json_file and button:
+        #     with st.spinner("JSON 문서 저장 중"):
+        #         json_path = save_uploadedfile(json_file)
+        #         json_document = json_to_documents(json_path)
+        #         smaller_documents = chunk_documents(json_document)
+        #         save_to_vector_store(smaller_documents)
+        user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
         
     with right_column:    
@@ -194,27 +158,6 @@ def main():
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
                     st.text(document.metadata.get('url', ''))
-                    # file_path = document.metadata.get('source', '')
-                    # page_number = document.metadata.get('page', 0) + 1
-                    # button_key = f"lint_{file_path}_{page_number}"
-                    # refreence_button = st.button(f"{os.path.basename(file_path)} pg.{page_number}", key=button_key)
-
-                    # button_key = f"lint_{file_path}"
-                    # refreence_button = st.button(f"{os.path.basename(file_path)}", key=button_key)
-                    # if refreence_button:
-                    #     st.session_state.page_number = str(page_number)
-    
-        # page_number 호출 ////// 이미지 대신 링크를 첨부하게 만들면 괜찮을 것 같다.
-        # page_number = st.session_state.get('page_number')
-        # if page_number:
-        #     page_number = int(page_number)
-        #     image_folder = "pdf_이미지"
-        #     images = sorted(os.listdir(image_folder), key=natural_sort_key)
-        #     print(images)
-        #     image_paths = [os.path.join(image_folder, image) for image in images]
-        #     print(page_number)
-        #     print(image_paths[page_number - 1])
-        #     display_pdf_page(image_paths[page_number - 1], page_number)
 
 if __name__ == "__main__":
     main()
