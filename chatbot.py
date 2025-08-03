@@ -2,7 +2,7 @@
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.documents.base import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -23,7 +23,7 @@ load_dotenv()
 
 ############################### 1단계 : JSON 문서를 벡터DB에 저장하는 함수들 ##########################
 
-## 1: 임시폴더에 파일 저장
+## 1: 임시폴더에 파일 저장, 이제 이 함수는 사용하지 않음(데이터 업로드 X, 내장 O)
 def save_uploadedfile(uploadedfile: UploadedFile) -> str : 
     temp_dir = "JSON_임시폴더"
     if not os.path.exists(temp_dir):
@@ -126,21 +126,26 @@ def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
+
+    if not os.path.exists("faiss_index"):
+        json_file = "database/test_data.json"
+        json_document = json_to_documents(json_file)
+        smaller_documents = chunk_documents(json_document)
+        save_to_vector_store(smaller_documents)
+
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
 
     left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
     with left_column:
         st.header("로욜라도서관 FAQ 챗봇")
-        json_file = st.file_uploader("JSON Uploader", type="json")
-        button = st.button("JSON 업로드하기")
-        if json_file and button:
-            with st.spinner("JSON 문서 저장 중"):
-                # st.text("여기까지 구현됨")
-                json_path = save_uploadedfile(json_file)
-                json_document = json_to_documents(json_path)
-                smaller_documents = chunk_documents(json_document)
-                save_to_vector_store(smaller_documents)
-        
+        # json_file = st.file_uploader("JSON Uploader", type="json")
+        # button = st.button("JSON 업로드하기")
+        # if json_file and button:
+        #     with st.spinner("JSON 문서 저장 중"):
+        #         json_path = save_uploadedfile(json_file)
+        #         json_document = json_to_documents(json_path)
+        #         smaller_documents = chunk_documents(json_document)
+        #         save_to_vector_store(smaller_documents)
         user_question = st.text_input("JSON 문서에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
         
