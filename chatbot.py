@@ -146,7 +146,7 @@ def main():
         #         json_document = json_to_documents(json_path)
         #         smaller_documents = chunk_documents(json_document)
         #         save_to_vector_store(smaller_documents)
-        user_question = st.text_input("JSON 문서에 대해서 질문해 주세요", 
+        user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
         
     with right_column:    
