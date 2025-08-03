@@ -126,8 +126,6 @@ def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
-    # st.text(dotenv_values(".env"))
-    # st.text("셋팅완료")
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
 
     left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
