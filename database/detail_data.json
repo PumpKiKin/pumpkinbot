@@ -1,0 +1,2071 @@
+[
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "통합검색",
+    "tab": "통합검색",
+    "url": "https://library.sogang.ac.kr/searchTotal?mId=10101000",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "소장자료검색",
+    "tab": "키워드",
+    "url": "https://library.sogang.ac.kr/search/toc",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "전자자료검색",
+    "tab": "키워드",
+    "url": "https://library.sogang.ac.kr/search/dla",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "학술논문(Articles)검색",
+    "tab": "학술논문(Articles)검색",
+    "url": "https://library.sogang.ac.kr/eds/advanced",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Search",
+    "title": "참고문헌검색",
+    "tab": "참고문헌검색",
+    "url": "https://library.sogang.ac.kr/local/html/citationLinker",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "전자저널",
+    "tab": "전자저널",
+    "url": "https://library.sogang.ac.kr/searchA/ejz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "학술DB",
+    "tab": "학술DB",
+    "url": "https://library.sogang.ac.kr/datalist/ejs/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "전자책",
+    "tab": "서명",
+    "url": "https://library.sogang.ac.kr/searchA/ebz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "동영상 강좌",
+    "tab": "동영상 강좌 서비스",
+    "url": "https://library.sogang.ac.kr/datalist/vod/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "Browse",
+    "title": "멀티미디어자료",
+    "tab": "최신자료",
+    "url": "https://library.sogang.ac.kr/newarrival/maz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "인기자료",
+    "tab": "인기자료",
+    "url": "https://library.sogang.ac.kr/favorloan/main?type=NEAR_MONTH&count=20",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "신착자료",
+    "tab": "신착자료",
+    "url": "https://library.sogang.ac.kr/newarrival",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "추천",
+    "title": "로욜라 큐레이션",
+    "tab": "로욜라 큐레이션",
+    "url": "https://library.sogang.ac.kr/myrecom/main",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "서강필독서",
+    "tab": "서강필독서",
+    "url": "https://library.sogang.ac.kr/digicol/list/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "본교교수 저작물",
+    "tab": "본교교수 저작물",
+    "url": "https://library.sogang.ac.kr/digicol/list/42",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "CGSI 기억연구 자료",
+    "tab": "CGSI 기억연구 자료",
+    "url": "https://library.sogang.ac.kr/digicol/list/41",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "취업ㆍ창업도서",
+    "tab": "취업ㆍ창업도서",
+    "url": "https://library.sogang.ac.kr/digicol/list/2",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "로욜라 컬렉션",
+    "subcategory": "테마",
+    "title": "학술원 우수학술도서",
+    "tab": "학술원 우수학술도서",
+    "url": "https://library.sogang.ac.kr/digicol/list/82",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "지정자료",
+    "title": "지정자료검색",
+    "tab": "지정자료검색",
+    "url": "https://library.sogang.ac.kr/coursereserves/search/alpa",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "지정자료",
+    "title": "지정자료신청",
+    "tab": "신청안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/81",
+    "description": {
+      "자료이용": [
+        "도서관 홈페이지→자료검색→소장자료에서 검색",
+        "검색결과에서, 도서상태는 \"지정자료\" 로 표시된 자료 해당",
+        "검색결과에서 반납예정일이 있는 도서는 대출중인 상태로 대출불가임.",
+        "지정자료의 청구기호를 적어 1관2층 대출대에 제시하면 지정자료 서가 자료를 찾아 대출당일부터 다음날 오전 10시까지 제한적 으로 대출 가능",
+        "지정자료 대출 책수 : 학부생 1인당 3책, 대학원생 1인당 2책",
+        "지정자료를 연체하는 경우에는 시간당 100원의 연체료 부과"
+      ],
+      "지정자료 신청": "학기 시작 일주일 전부터 해당 학기 개설 교과목 담당교수만 신청 가능"
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육안내",
+    "tab": "교육안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/3",
+    "description": {
+      "정규교육신청": [
+        "해당 일정 중에서 신청하고 싶은 교육명을 클릭합니다.",
+        "교육관련 상세내용을 확인하고 신청버튼을 누릅니다.",
+        "※ 교육일정 달력에서 특정 '정규교육'을 선택하면, 해당 교육 상세화면으로 바로 연결됩니다.",
+        "정규교육신청 바로가기",
+        "※ 교육일정 달력에서 특정 '정규교육'을 선택하면, 해당 교육 상세화면으로 바로 연결됩니다."
+      ],
+      "맞춤교육 신청": [
+        "'맞춤교육'을 선택해서 '교육신청'을 클릭하면 신청 페이지로 전환됩니다.",
+        "해당 양식에 맞게 기입하여 신청합니다.",
+        "담당사서가 신청건에 대해 가능여부를 확인한 후 결정됩니다.",
+        "해당 건이 '신청'→'확인중'을 거쳐 '신청승인'이 되면 해당 수업이 확정됩니다.",
+        "맞춤교육 신청 바로가기"
+      ]
+    },
+    "contact": {
+      "도서관 이용교육": {
+        "부서명": "정보서비스팀",
+        "전화번호 :": "02-705-8195~97",
+        "이메일": "libref@sogang.ac.kr"
+      },
+      "전자자료 이용교육": {
+        "부서명": "창의지식협력팀",
+        "전화번호 :": "02-705-8692",
+        "이메일": "libdigt@sogang.ac.kr"
+      }
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육일정",
+    "tab": "교육일정",
+    "url": "https://library.sogang.ac.kr/libsch/mixMonthlyCalendar/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "정규교육신청",
+    "tab": "정규교육신청",
+    "url": "https://library.sogang.ac.kr/education/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "맞춤교육신청",
+    "tab": "맞춤교육신청",
+    "url": "https://library.sogang.ac.kr/edusupp/write",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "정보활용교육",
+    "title": "교육자료",
+    "tab": "교육자료",
+    "url": "https://library.sogang.ac.kr/bbs/list/5",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "연구가이드",
+    "tab": "연구가이드",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4",
+    "description": {
+      "연구가이드": [],
+      "공통 주제": {
+        "국내": [],
+        "국외": []
+      },
+      "학과/주제별": {
+        "인문과학": [],
+        "사회과학": [],
+        "경제·경영": [],
+        "자연과학": [],
+        "공학": [],
+        "법학": [],
+        "통계": []
+      },
+      "논문작성 및 학술정보지원센터": {
+        "논문작성법": [],
+        "논문작성법 / 학위논문작성법": [
+          "로욜라도서관에서는 교내 석박사 학위논문의 책자본 및 원문 파일을 수집하고 있습니다. 또한, 논문 작성에 도움을 주기 위해 다양한 서비스를 지원하고 있습니다.",
+          "서강대학교 학위논문 제출서식은 대학원별로 상이합니다. 다음은 서강대학교 각 대학원 별 학위논문 작성법, 작성지침, 안내를 모아놓은 것입니다.",
+          "일반대학원 본교 일반대학원 홈페이지 > 학사 > 학위논문 > 학위논문 작성지침 본교 일반대학원 홈페이지 > 학사 > 학위논문 > 학위논문 작성법",
+          "교육대학원 본교 일반대학원 홈페이지 > 학사 > 논문 및 졸업보고서 작성지침",
+          "미디어커뮤니케이션대학원 본교 미디어커뮤니케이션대학원 홈페이지 > 학사 > 졸업관련안내 > 논문작성지침",
+          "정보통신대학원 본교 정보통신대학원 홈페이지 > 학사안내 > 논문관련 안내",
+          "메타버스전문대학원 본교 정보통신대학원 홈페이지 > Academics > 서류양식",
+          "본교 일반대학원 홈페이지 > 학사 > 학위논문 > 학위논문 작성지침",
+          "본교 일반대학원 홈페이지 > 학사 > 학위논문 > 학위논문 작성법",
+          "본교 일반대학원 홈페이지 > 학사 > 논문 및 졸업보고서 작성지침",
+          "본교 미디어커뮤니케이션대학원 홈페이지 > 학사 > 졸업관련안내 > 논문작성지침",
+          "본교 정보통신대학원 홈페이지 > 학사안내 > 논문관련 안내",
+          "본교 정보통신대학원 홈페이지 > Academics > 서류양식"
+        ],
+        "논문작성법 / 서지관리": [
+          "논문작성에 필요한 서지정보를 수집해서 관리하기 위해서는 서지관리 프로그램을 이용하시면 됩니다. 로욜라도서관에서는 참고문헌을 수집하고 관리하기 위해서 RefWorks와 EndNote를 구독하고 있으니 이용하시기 바랍니다.",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 참고문헌관리 RefWorks 도서관 홈페이지 > 연구학습지원 > 연구지원 >참고문헌관리 EndNote",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 참고문헌관리 RefWorks",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 >참고문헌관리 EndNote"
+        ],
+        "논문작성법 / 연구윤리, 표절예방": [
+          "연구윤리는 연구자가 정직하고, 성실하게, 책임 있는 연구를 수행하기 위해 지켜야 할 원칙이자 의무입니다.",
+          "논문 투고, 보고서 제출 전에 표절예방 프로그램을 통해 저작물의 유사도를 미리 확인하면 논문 표절을 예방할 수 있습니다. 로욜라도서관에서는 논문 및 과제에 대한 표절여부를 확 인하기 위해서 「Turnitin」 (논문표절예방프로그램)을 구독하고 있으니 이용하시기 바랍니다. 학생은 개인계정 생성 후 이용가능하고, 교수는 담당자에게 이메일로 요청 후 이용가능합니다.",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 표절예방시스템 Turnitin",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 표절예방시스템 Turnitin"
+        ],
+        "로욜라지식발전소": [],
+        "로욜라지식발전소 / 이용방법": "도서관 1관 2층 Help Desk, 1관 3층 Reference Desk(참고서비스 데스크)에서는 담당사서가 이용자들의 도서관 이용 및 문의를 해결해 주고 있습니다. 또한, ‘로욜라지식발전소’ 안내판이 부착되어있는 도서관 내 모든 사무실에도 각종 문의를 할 수 있습니다. 해당 장소에서 해결이 가능한 문제는 바로 해결해 드리며, 타 부서 연결이 필요한 경우 연결서비스를 제공합니다.",
+        "연구윤리": [],
+        "연구윤리 / 연구윤리 / 표절예방": [
+          "논문 투고, 보고서 제출 전에 표절예방 프로그램을 통해 저작물의 유사도를 미리 확인하면 논문 표절을 예방할 수 있습니다.",
+          "로욜라도서관에서는 논문 및 과제에 대한 표절여부를 확 인하기 위해서 「Turnitin」 (논문표절예방프로그램)을 구독하고 있으니 이용하시기 바랍니 다.",
+          "학생은 개인계정 생성 후 이용가능하고, 교수는 담당자에게 이메일로 요청 후 이용가 능합니다.",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 표절예방시스템 Turnitin",
+          "연구윤리에 관한 추가적이고 광범위한 자료 및 정보가 필요할 때는 다음의 연구윤리정보센 터를 참조하시기 바랍니다.",
+          "연구윤리정보센터(Center doe Research Ethics Information, CRE)",
+          "도서관 홈페이지 > 연구학습지원 > 연구지원 > 표절예방시스템 Turnitin",
+          "연구윤리정보센터(Center doe Research Ethics Information, CRE)"
+        ]
+      }
+    },
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "핵심 전자자료 가이드",
+    "tab": "국내 학술논문",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5",
+    "description": {
+      "국내 학술논문": {
+        "DBpia": [
+          "국내 2,900여개의 발행기관에서 출간되는 4,700여종의 학회지 및 정기간행물의 논문 390여만편을 제공하는 학술포털",
+          "연구 및 자료 관리를 위한 다양한 편의 서비스 제공"
+        ],
+        "KISS": [
+          "3,300여개의 기관에서 발행된 6,100여종의 힉회지 논문 310만여건 제공"
+        ],
+        "e-Article": [
+          "660여개 학술기관의 1,000 여종 간행물의 논문을 제공"
+        ],
+        "Scholar": [
+          "950여개 발행기관의 1,500여종 간행물의 논문 100만편"
+        ]
+      },
+      "국외 학술논문": {
+        "Academic Search Ultimate": [
+          "전체 주제분야의 해외 학술데이터베이스로 10,000여종 이상의 학술저널(80%이상 peer-reviewed) 과 매거진의 저널 원문 제공"
+        ],
+        "ACS(American Chemical Society) (화학)": [
+          "미국화학학회에서 발행하는 저널 90종과 OA 19종의 원문 및 ACS Archive 제공"
+        ],
+        "Cambridge University Press(인문ㆍ사회)": [
+          "Cambridge University Press 출판 Humanities Social Sciences 분야 저널 원문을 Cambridge Core를 통해 제공"
+        ],
+        "IEEE/IET Electronic Library(전기ㆍ전자)": [
+          "전기, 전자, 컴퓨터 공학을 포함한 공학분야의 IEEE와 IET의 저작권을 가진 Journal, Proceedings, IEEE Standard 정보 등을 제공"
+        ],
+        "JSTOR": [
+          "인문, 사회, 과학 분야의 1,350여종 학술지의 창간호부터 최근 4~5년 이전자료의 원문을 제공"
+        ],
+        "Nature (이공)": [
+          "과학 분야의 High Impact 저널을 다수 발간하며 대표 타이틀은 Nature",
+          "우리도서관 구독 저널 11종 : Nature, Nature Biotechnology, Nature Genetics, Nature Immunology, Nature Materials, Nature Methods, Nature Nanotechnology, Nature Photonics, Nature Physics, Nature Reviews Genetics, Oncogene)"
+        ],
+        "Oxford University Press (OUP)": [
+          "Oxford University Press에서 출판하는 300여종 저널의 원문 제공"
+        ],
+        "PsyArticles (심리)": [
+          "미국심리학회(APA : American Psychological Association)에서 출간하고 있는 심리학과 정신분석학 분야의 권위있는 데이터베이스로서 110여종의 학술저널 원문을 제공"
+        ],
+        "Sage Journals": [
+          "Sage 출판사에서 발간하는 학술 저널 아카이브의 원문 제공 (원문제공범위: ~2019)"
+        ],
+        "ScienceDirect": [
+          "Elsevier에서 출판하는 학술 저널 2,400여종의 원문 제공"
+        ],
+        "Springer Link: Journal Full Collection": [
+          "Springer에서 출판하는 전체주제분야 학술저널의 원문 제공",
+          "원문제공 범위 : 1997년~현재 (저널에 따라 상이함)"
+        ]
+      },
+      "국내외 학위논문": {
+        "RISS": [
+          "전국대학소장 학위논문을 검색하여 원문 이용 또는 복사 신청 가능"
+        ]
+      },
+      "주요 학술지ㆍ논문ㆍ인용 정보": {
+        "Web of Science": [
+          "1990년부터 현재까지 주요 학술지에 수록된 논문의 서지정보, 저자초록 및 인용정보를 제공하는 데이터베이스",
+          "인용문헌 추적을 통해 연구의 근원, 흐름, 선행조사, 동료 또는 경쟁자의 연구 활동을 파악할 수 있고 해당 연구 분야의 전문가 및 최신 동향을 알 수 있음."
+        ],
+        "Scival": [
+          "학술 연구 역량 및 연구 성과 분석 솔루션 학술저널 논문의 서지 및 인용정보를 수록한 Scopus 데이터를 기반으로 220여 국가, 8,500여개 기관의 연구성과 및 연구역량 분석 자료를 제공"
+        ]
+      },
+      "자료수집 관리 및 참고문헌 인용 생성": {
+        "EndNote": [
+          "검색한 자료의 정보 저장과 참고문헌 관리를 용이하게 해 주며, Windows 및 Mac에서 모두 사용 가능한 설치형 서지 관리 솔루션"
+        ],
+        "RefWorks": [
+          "전자자료의 수집ㆍ관리와 더불어 참고문헌과 인용 생성을 간편하게 해 주는 웹기반 자료 관리 도구"
+        ]
+      },
+      "한국학": {
+        "한국학 종합DB": [
+          "주요문집에 대한 검색 및 원문 제공"
+        ],
+        "KoreaA2Z": [
+          "한국학 전문학술 콘텐츠 제공"
+        ],
+        "KRpia": [
+          "한국 문화 관련 포괄적 콘텐츠 제공"
+        ]
+      },
+      "신문ㆍ매거진": {
+        "The New York Times": [
+          "English (영어판), Chinese (중국어판), Spanish (스페인어판)의 3가지 Edition 제공 국제, 정치, 뉴욕(지역), 오피니언, 비즈니스, 기술, 과학, 스포츠, 예술, 패션 & 스타일 및 비디오를 포함하여 25개 이상의 섹션으로 구성",
+          "모바일 서비스 및 1981년 이전 기사원문과 New York Times in Education 자료를 이용하려면 개인등록 필요 (More Info.)"
+        ],
+        "PressReader": [
+          "국내 및 100여개 국가의 주요 일간지와 다양한 주제분야의 최신 매거진 등을 제공"
+        ]
+      }
+    },
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "표절예방시스템 Turnitin",
+    "tab": "표절예방시스템 Turnitin",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/7",
+    "description": {
+      "Turnitin 이란?": [
+        "논문 및 과제의 표절예방프로그램 웹페이지, 저널, 주요신문, 잡지, 논문 및 과제물, 단행본, 기타 학술출판사의 자료들을 대상으로 일치율과 일치 부분을 검색해 주는 서비스 계정생성→로그인→논문등록→검사 보고서 확인 (유사도 확인)→디지털수령증 출력 (검사완료를 증빙하는 자료) 과제 제출, 평가, 피드백을 위한 도구 (강사/교수용)",
+        ""
+      ],
+      "Turnitin 이용 대상": [
+        "서강대학교 재학생 (학부생, 대학원생)",
+        "서강대학교에 재직중인 교직원 (교수, 강사, 직원, 연구원) ※ 졸업생은 이용이 불가능합니다. (Turnitin 이용 계약상 범위에 해당하지 않습니다. )",
+        "서강대학교에 재직중인 교직원 (교수, 강사, 직원, 연구원)",
+        "※ 졸업생은 이용이 불가능합니다. (Turnitin 이용 계약상 범위에 해당하지 않습니다. )"
+      ],
+      "학생용 계정 생성 (학부생, 대학원생, 조교)": [
+        "Turnitin 사이트에 접속하여 스스로 계정을 생성하여 로그인, 이용",
+        "계정생성시 필요한 것 1) 서강 웹메일 (@sogang.ac.kr로 끝나는 메일. Turnitin 계정의 아이디가 됩니다.) 서강웹메일 계정 생성 방법 : http://it.sogang.ac.kr/it/smart02_02.html 2)클래스ID, PW : 계정 생성 시 입력 필요 클래스 ID / PW 확인 클래스ID / PW 클래스ID : 45378526, 클래스PW : loyola2024!",
+        "서강 웹메일 (@sogang.ac.kr로 끝나는 메일. Turnitin 계정의 아이디가 됩니다.)",
+        "서강웹메일 계정 생성 방법 : http://it.sogang.ac.kr/it/smart02_02.html",
+        "클래스ID / PW",
+        "클래스ID : 45378526, 클래스PW : loyola2024!"
+      ],
+      "강사/교수용 계정 생성 (강사, 교수)": [
+        "계정 생성을 위해 도서관 담당자에게 필요정보를 이메일로 작성하여 전송",
+        "1)필요정보 : 사용자 이름 / 소속 및 신분 / 본인의 서강대 이메일 (@sogang.ac.kr) 2)도서관 담당자 연락처 : 서강대 창의지식협력팀, libcomp@sogang.ac.kr(Tel: 02-705-8953) 3)메일을 보내면 도서관 담당자가 수동으로 계정 생성. 4)보내주신 서강이메일 계정이 ID가 되고 PW는 해당 서강 웹메일로 임시비밀번호가 전송됨(발송자명 'Turnitin No reply' 로 발송되는 메일) 5)발급된 임시비밀번호로 Turnitin 사이트에서 로그인"
+      ]
+    },
+    "contact": {
+      "부서명": "창의지식협력팀",
+      "전화번호 :": "02-705-8953",
+      "이메일": "libcomp@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "참고문헌관리 EndNote / RefWorks",
+    "tab": "EndNote",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/2163621",
+    "description": {
+      "기능 및 특징": [
+        "검색한 서지정보를 EndNote로 반입하거나 직접 입력하여 관리",
+        "특정 자료에 대한 Full-text, Figure 등을 첨부하여 관리",
+        "MicroSoft Word 호환으로 특정 학회 및 저널의 형식에 따른 참고문헌 자동 생성",
+        "Windows 버전 및 Mac 버전 별도 제공 (EndNote 21, 2025)"
+      ],
+      "EndNote 이용 안내": "설치 가이드 아래 [EndNote download] 에서 설치파일을 다운로드하고 실행하여 설치 Windows 버전은 파일 압축을 푼 후, .msi 파일을 실행하여 설치 (zip 파일 다운로드 후, 꼭 압축 '풀기' 버튼을 누른 후 msi 파일을 실행하세요. 파일 다운로드 후 압축을 풀지 않고 msi 파일을 실행하면 도서관에서 제공하지 않는 product key를 입력하라고 뜹니다.)",
+      "이용 가이드": []
+    },
+    "contact": {
+      "부서명": ": 창의지식협력팀",
+      "전화번호": "02-705-8692",
+      "이메일": "libdigt@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "학위논문제출",
+    "tab": "학위논문제출",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/9",
+    "description": {
+      "PQDT Publishing 이란?": "학위논문 제출자 중 희망자에 한해서 해외 학위논문 DB인 PQDT(ProQuest Dissertations&Theses)에 본인의 학위논문이 서비스 되도록 출판하는 것을 말합니다.",
+      "PQDT Publishing 의 장점": [
+        "본인의 학위논문이 세계 다양한 이용자들에게 노출/인용/홍보 되는 기회를 제공 (PQDT는 전 세계에서 가장 널리 이용되는 학위논문 DB)",
+        "국제표준도서번호(ISBN) 를 부여",
+        "학위논문 출판비용 무료 (Traditional Publishing에 한해 무료)"
+      ],
+      "PQDT 출판 방법": [
+        "ProQuest ETD 사이트 접속 논문 전자출판 사이트 주소 : http://www.etdadmin.com/sogang",
+        "제출자 계정 생성 & 로그인 출판 서비스를 이용하기 위해 신규 계정 생성이 필요합니다. 계정 생성에 포함되는 개인 정보 (메일 계정, 암호, 이름)는 이용자 본인만이 알 수 있으며, 관리자는 계정을 관리하지 않습니다.",
+        "제출과정에 따라 제출 정보를 작성하고 논문 파일을 업로드",
+        "서강대학교 PQDT 출판 관리자가 제출된 내용을 검토, ProQuest 로 전송 (제출 후 논문이 서비스 되기 까지 약 8~12주 정도 기간이 소요됩니다.)",
+        "논문 전자출판 사이트 주소 : http://www.etdadmin.com/sogang",
+        "(제출 후 논문이 서비스 되기 까지 약 8~12주 정도 기간이 소요됩니다.)"
+      ],
+      "온라인 학위논문 제출 과정": [],
+      "학위논문 공개 설정에 관해": []
+    },
+    "contact": {
+      "부서명": "창의지식협력팀",
+      "전화번호": "02-705-8953",
+      "이메일": "libcomp@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "등재 학술지 리스트",
+    "tab": "등재 학술지 리스트",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/501",
+    "description": {},
+    "contact": {
+      "부서명": "창의지식협력팀",
+      "전화번호": "02-705-8692",
+      "이메일": "libdigt@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "연구지원",
+    "title": "OA 출판 및 APC(논문출판비용) 지원",
+    "tab": "OA 출판 및 APC 지원 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5618421",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "자료 대출 반납 안내",
+    "tab": "대출 권수 및 기간",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/10",
+    "description": {},
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "전자자료 이용 안내",
+    "tab": "이용 TIP",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/13",
+    "description": {
+      "전자자료 이용 Tip": [
+        "저널의 서명이나 출판사 등을 알고 있을 때 : 자료검색의 통합검색 또는 Browse 전자저널 이용",
+        "주제(학과)로 학술논문을 찾고자 할 때 : Browse 전자저널 이용",
+        "찾고자 하는 학술논문의 원문을 구입하라는 메시지가 나올 때 : 해당저널의 원문 제공기간 확인"
+      ]
+    },
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "희망자료 신청",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/16",
+    "description": {
+      "희망자료 신청": [],
+      "신청방법": [
+        "도서관 홈페이지 로그인 후 희망자료 신청에서 신청할 수 있습니다.",
+        "자료의 서지사항(서명, 저자, 발행처, 발행년도, ISBN 등)을 직접 입력하거나, 인터넷서점 검색을 통해 신청할 수 있습니다.",
+        "신청 자료의 처리상황 조회 및 취소는 ‘My Library - 희망자료 신청내역’ 에서 확인할 수 있습니다.",
+        "※ 전자책 희망자료 신청 및 처리상황 조회는 하단의 ‘바로가기’를 클릭해 참고하기 바랍니다.",
+        "희망자료 신청 바로가기",
+        "국내전자책 희망자료 신청안내바로가기",
+        "국외전자책 희망자료 신청안내바로가기"
+      ],
+      "선정기준": [
+        "만화/ 카툰류 (단, 교양/시사/학술적인 내용일 경우 선별 구입)",
+        "무협, 판타지 소설 및 오락용 출판물",
+        "아동도서, 외설물, 어학교재",
+        "개인 수험서, 문제집 및 각종 실용서적",
+        "소책자(문고본 포함), 낱장형태의 자료 등",
+        "그 외 수서담당자가 부적합하다고 판단하는 자료"
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보개발팀",
+      "전화번호 :": "02-705-8692",
+      "이메일 :": "libdigt@sogang.ac.kr",
+      "전자책 구입": "창의지식협력팀"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 대출",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/17",
+    "description": {
+      "타도서관 자료 대출": [],
+      "신청 불가 자료": [
+        "본교 소장 단행본",
+        "단행본 이외의 자료 (학술지, 학위논문, DVD 등)",
+        "제공 도서관 규정에 의한 대출 불가 자료"
+      ],
+      "자료수령 및 반납": [
+        "자료 도착알림 (SMS 또는 메일)을 받으면 로욜라도서관 방문하여 자료 수령",
+        "수령 및 반납 장소 택배/퀵서비스 이용 시, 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크 직접방문 시, 제공기관에서 수령 (직접반납 원할 경우 서비스 담당자에게 반드시 연락)",
+        "수령 및 반납 장소"
+      ],
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libinter@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 복사",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/18",
+    "description": {
+      "타도서관 자료 복사": [],
+      "자료수령": [
+        "자료 도착알림(SMS 또는 메일)을 받으면 도서관에 방문하여 자료 수령",
+        "모든 자료는 인쇄물로 제공 (저작권법상 파일 제공 불가)",
+        "수령 장소 : 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크",
+        "비용지원 방법 : 국내외 타도서관 자료 복사 비용 전액",
+        "지원건수 : 개인당 신청 제한 건수와 금액은 40건 또는 10만원으로 제한 (1달 기준)"
+      ],
+      "이용요금 및 소요기간": {
+        "등기우편": []
+      },
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libill@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 이용",
+    "title": "서가에 없는 자료",
+    "tab": "서가에 없는 자료",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/19",
+    "description": {
+      "서가에 없는 자료 신고 방법": [
+        "도서관 홈페이지의 자료검색 창에서 신고하려는 자료를 검색",
+        "검색결과에서 서명을 클릭하여 상세화면으로 이동",
+        "상세화면 하단 소장정보에서 서가에 없는 자료 신고 버튼을 클릭 (도서관 IP내에서만 신고가능)"
+      ],
+      "자료상태가 '대출가능'으로 표시되나, 서가에 없는 경우는 다음과 같습니다.": [
+        "자료열람실 내에서 다른 이용자가 자료를 이용하는 경우 대출하지 않고 열람중일 수 있으니 다른 시간/다음날 확인한 후 ‘서가에 없는 자료 (찾지못한자료)’ 서비스를 이용합니다.",
+        "서가에 잘못 꽃힌 경우 원래 자료가 있어야 하는 서가 주변을 확인한 후, ‘서가에 없는 자료 (찾지못한자료)’ 서비스를 이용합니다.",
+        "자료열람실 내에서 다른 이용자가 자료를 이용하는 경우",
+        "대출하지 않고 열람중일 수 있으니 다른 시간/다음날 확인한 후 ‘서가에 없는 자료 (찾지못한자료)’ 서비스를 이용합니다.",
+        "서가에 잘못 꽃힌 경우",
+        "원래 자료가 있어야 하는 서가 주변을 확인한 후, ‘서가에 없는 자료 (찾지못한자료)’ 서비스를 이용합니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "개관시간",
+    "tab": "개관시간",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/20",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "일반열람실 및 스터디룸 이용안내",
+    "tab": "일반열람실",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/21",
+    "description": {
+      "일반열람실 현황": [
+        "노트북 사용은 노트북열람석에서만 가능합니다.",
+        "외부인은 일반열람실을 사용할 수 없습니다. 발견 시 퇴실 조치합니다."
+      ],
+      "일반열람실 좌석발권 방법": [
+        "좌석발권기 발권: 각 열람실에 설치되어 있으며 신분증 인증 후 발권",
+        "모바일 발권: 모바일학생증(이용증) 접속→일반열람실 발권예약→30분 이내에 좌석발권기에서 발권 확정",
+        "1회 발권 시 4시간 이용할 수 있습니다.",
+        "2회 연장할 수 있으며, 총 12시간 연속 이용할 수 있습니다.",
+        "자리 독점을 방지하기 위해, 좌석 반납 후 1시간 이내에 동일좌석을 재발권할 수 없습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8191",
+      "이메일": "libcir2@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "전시 및 행사 공간 이용안내",
+    "tab": "로욜라 이주연 갤러리 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/26",
+    "description": {
+      "전시 및 행사 공간 이용안내": [],
+      "시설 안내": [
+        "95 제곱미터(㎡)의 전시 및 행사 공간",
+        "테이블, 스툴 등의 가구와 빔 프로젝터, 스크린, 음향기기를 기본으로 제공",
+        "요청에 따라 디지털 액자, 디지털 사이니지(DID), 전시용 선반 등 추가 제공 가능",
+        "별도 냉난방 시설 및 교내 Wifi 이용 가능"
+      ],
+      "이용대상": [
+        "교내 구성원",
+        "정보서비스팀장이 승인하는 개인 및 단체"
+      ],
+      "신청제한": [
+        "사용 신청서 허위 기재",
+        "행사의 목적 또는 내용이 법령이나 사회적 통념에 위배될 우려가 있는 경우",
+        "행사로 인하여 시설물의 훼손 또는 각종 대여 기자재의 파손이 우려되는 경우",
+        "행사로 인해 안전사고 발생의 위험성이 존재하는 경우",
+        "이전에 금지행위 위반이 적발되어 사용에 제한이 필요한 신청자 또는 단체의 경우",
+        "그 외 로욜라 이주연 갤러리에서 수용이 부적합한 것으로 판단되는 행사의 경우"
+      ],
+      "신청방법": []
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "라파엘 라이브 스튜디오 이용 안내",
+    "tab": "촬영 스튜디오",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4179621",
+    "description": {
+      "장비 소개": [
+        "카메라1: Canon XF105 A (1대)",
+        "카메라2: Canon VIXIA HF G70 (３대)",
+        "촬영 및 편집용 PC",
+        "촬영용 스위처: ATEM MINI PRO ISO",
+        "촬영 S/W: OBS Studio",
+        "오디오 믹서: FLOW8",
+        "마이크(2대)",
+        "스탠드 조명 (4대)",
+        "모니터링 TV",
+        "자동 크로마키: 흰색, 녹색, 청색",
+        "프롬프터",
+        "촬영석: 테이블 1대, 의자 2대",
+        "판서용테블릿 (1대)",
+        "스트림덱 (1대)"
+      ],
+      "신청 방법": [
+        "시설 사용 최소 3일 전(월~금)까지 정보서비스팀 담당자에게 전화(02-705-8197) 또는 방문 신청하고 사용 신청서(도서관 홈페이지>도서관 소개>각종 양식 다운로드)를 제출",
+        "1일 최대 2회, 1회 최대 2시간 이용 가능",
+        "1달 최대 8시간 이용 가능",
+        "사용 신청서"
+      ]
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "캐럴 이용 신청",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/28",
+    "description": {
+      "시설 안내": [
+        "3관 4층 캐럴 24실 제공",
+        "학습용 책상, 의자, PC(교내 네트워크 연결) 등"
+      ],
+      "이용절차": [
+        "도서관에서는 매년 2월과 8월 중순에 도서관 홈페이지를 통해 캐럴 이용 신청을 받습니다.",
+        "선정 원칙에 따라 최종 이용자를 확정하여 도서관 홈페이지에 공고합니다.",
+        "선정된 이용자는 도서관 대출대에 방문하여 캐럴 이용 신청서 및 개인정보 수집 ‧ 활용 동의서를 작성하며, 이 때 선착순으로 캐럴을 선택합니다.",
+        "캐럴이 배정되면 해당 캐럴의 도어록 비밀번호를 배부받습니다.",
+        "첫 달과 마지막 달을 제외한 매달 중순에 다음 달 사용 여부를 도서관 홈페이지를 통해 신청해야 다음 달 이용이 가능합니다.",
+        "퇴실할 때에는 PC의 개인자료는 전부 삭제해야 합니다."
+      ],
+      "선정 원칙": [
+        "논문학기 대학원생 등록자의 우선순위는 다음과 같습니다. ㄱ. 박사과정 학생 ㄴ. 석사과정 학생 중 우선순위 학기(휴학학기 포함)가 오래된 학생 학과별 공정 배분 성적(총 평점) 우수자 ㄷ. 선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다.",
+        "본교 퇴직 교수의 선정은 선착순에 따릅니다. 단, 신청자가 없을 경우 논문학기 대학원생 등록자에게 좌석을 배정할 수 있습니다.",
+        "원칙적으로 재이용 신청자는 선정대상에서 제외됩니다. 단, 지원자 미달 시 1회 재이용이 가능합니다.",
+        "박사과정 학생",
+        "석사과정 학생 중 우선순위",
+        "선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다."
+      ],
+      "주의사항": [
+        "캐럴과 관련된 공지는 '카카오워크' 앱과 캐럴 이용 신청서에 기입한 '이메일'로 전달됩니다.",
+        "캐럴 이용 확정자가 이용을 포기할 경우, 1회 사용한 것으로 간주합니다.",
+        "대리 신청 시 본인 및 신청자 모두 캐럴 사용이 불가능합니다.",
+        "이용자는 도서관에서 제시하는 캐럴 이용자 안내사항을 준수해야 하며, 이를 위반한 경우 퇴실 조치될 수 있습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀",
+      "전화번호": "02-705-8198",
+      "이메일": "libstudy@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "복사 출력 스캔 안내",
+    "tab": "복사 출력 스캔 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/29",
+    "description": {
+      "이용시간": [
+        "복사실 학기중 : 월~금 9시~18시, 토요일 휴무 방학중 : 월~금 9시~18시, 토요일 휴무",
+        "무인: 월~토 9시~폐관시간"
+      ]
+    },
+    "contact": {
+      "부서명": "복사실",
+      "전화번호": "02-711-5482",
+      "이메일": "jym741003@naver.com"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "무선랜 이용 안내",
+    "tab": "무선랜 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/30",
+    "description": {
+      "이용방법": [
+        "웹인증 : sgwlan 연결 후 웹 브라우저 실행하여 SAINT 계정으로 로그인하여 이용",
+        "보안인증 : sgwlan_secure 연결하여 SAINT 계정으로 로그인하여 이용(보안인증 관련 자세한 정보는 정보통신원 홈페이지에서 확인 가능)"
+      ],
+      "이용안내": [
+        "서강구성원이 타 기관 방문시 WiFi 설정에서 SSID “eduroam”연결 SAINT ID(학번/사번)@sogang.ac.kr과 비밀번호로 로그인",
+        "타 대학 구성원이 본교 방문시 WiFi 설정에서 SSID “eduroam”연결 해당대학 포털 ID@도메인과 비밀번호로 로그인",
+        "에듀롬 가입 대학 및 기관 확인 등 보다 자세한 정보는 아래 사이트에서 확인 할 수 있습니다. 에듀롬 가입 대학 및 기관 확인",
+        "서강구성원이 타 기관 방문시",
+        "타 대학 구성원이 본교 방문시",
+        "에듀롬 가입 대학 및 기관 확인 등 보다 자세한 정보는 아래 사이트에서 확인 할 수 있습니다."
+      ],
+      "접속방법": [
+        "서강구성원이 타 기관 방문시 WiFi 설정에서 SSID “eduroam”연결 SAINT ID(학번/사번)@sogang.ac.kr과 비밀번호로 로그인",
+        "타 대학 구성원이 본교 방문시 WiFi 설정에서 SSID “eduroam”연결 해당대학 포털 ID@도메인과 비밀번호로 로그인",
+        "에듀롬 가입 대학 및 기관 확인 등 보다 자세한 정보는 아래 사이트에서 확인 할 수 있습니다. 에듀롬 가입 대학 및 기관 확인",
+        "서강구성원이 타 기관 방문시",
+        "타 대학 구성원이 본교 방문시",
+        "에듀롬 가입 대학 및 기관 확인 등 보다 자세한 정보는 아래 사이트에서 확인 할 수 있습니다."
+      ],
+      "이용대상": []
+    },
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "모바일 이용증 안내",
+    "tab": "모바일 이용증 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/31",
+    "description": {
+      "ID, Password 입력 후 사용": [
+        "ID: 학번, 사번, 도서관 ID",
+        "Password: SAINT Password 또는 도서관 Password"
+      ],
+      "이용안내": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8191",
+      "이메일": "libcir2@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "시설 이용",
+    "title": "타도서관 이용 신청",
+    "tab": "이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/32",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "학생",
+    "tab": "학생",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/33",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "교직원",
+    "tab": "교직원",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/34",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "졸업생",
+    "tab": "졸업생",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/35",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "도서관회원",
+    "tab": "도서관회원",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/36",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "협정기관",
+    "tab": "협정기관",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/37",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "장애인",
+    "tab": "장애인",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/38",
+    "description": {
+      "도서관 출입": [
+        "도서관 건물 진입 : 로욜라 언덕 옆 경사로를 통해 1관으로 진입하거나, 다산관 쪽 경사로를 통해 2관으로 진입할 수 있습니다.",
+        "도서관 자료열람실 진입 : 도서관 1관 1층 승강기를 이용해서 도서관 자료열람실 내부로 진입할 수 있습니다. 도서관 1관 1층 승강기 입구에 설치된 인터폰을 누르면 담당자(1관 2층 출입구데스크, 02-705-8192)가 1층으로 내려와서 자료열람실 내부로 진입할 수 있게 도와드리겠습니다.",
+        "도서관 퇴관 : 1관 승강기를 이용해서 1층으로 내려가 퇴관할 수 있습니다. 필요시, 1관 2층 출입구 데스크(02-705-8192)로 요청해 주시면, 담당자가 자료대출 여부를 확인한 후 엘리베이터에 동승하여 1층으로 나가실 수 있게 조치해 드리겠습니다."
+      ],
+      "대출": []
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용자별 이용안내",
+    "title": "기타",
+    "tab": "기타",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/39",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "연혁",
+    "tab": "연혁",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/40",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "자료현황",
+    "tab": "자료현황",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/41",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "시설현황",
+    "tab": "시설현황",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/42",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "조직 및 업무별 연락처",
+    "tab": "조직 및 업무별 연락처",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/43",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "규정",
+    "tab": "규정",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/44",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "비전",
+    "tab": "비전",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/45",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "오시는 길 / 층별 안내",
+    "tab": "도서관위치",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/83",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라 도서관",
+    "title": "도서관 홍보물",
+    "tab": "도서관 홍보물",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/241",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "분관 안내",
+    "title": "법학전문도서관",
+    "tab": "법학전문도서관",
+    "url": "https://library.sogang.ac.kr/law",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "공지사항",
+    "tab": "일반공지",
+    "url": "https://library.sogang.ac.kr/bbs/list/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "FAQ",
+    "tab": "도서관이용",
+    "url": "https://library.sogang.ac.kr/faqlib/faq",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "문의 및 건의",
+    "tab": "문의 및 건의",
+    "url": "https://library.sogang.ac.kr/bbs/list/49",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "분실물 찾기",
+    "tab": "분실물 찾기",
+    "url": "https://library.sogang.ac.kr/bbs/list/50",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "알림/문의",
+    "title": "각종 양식 다운로드",
+    "tab": "각종 양식 다운로드",
+    "url": "https://library.sogang.ac.kr/bbs/list/6",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "도서관 기부",
+    "title": "로욜라원프로젝트",
+    "tab": "안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/48",
+    "description": {},
+    "contact": {
+      "부서명": "대외교류처",
+      "전화번호 :": "02-705-8050 Fax. 02-705-8051",
+      "이메일": "fund@sogang.ac.kr",
+      "홈페이지": "https://give.sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "도서관 기부",
+    "title": "자료 기증",
+    "tab": "자료 기증",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/49",
+    "description": {
+      "자료 기증": [],
+      "기증대상": [
+        "대학 도서관의 장서로 적합한 자료로 도서, 비도서(DVD 등 멀티미디어)자료 모두 가능합니다.",
+        "기증해 주신 자료 중 아래에 해당하는 자료는 도서관 장서로 등록하지 않습니다. 자료 기증 시 참고하시기 바랍니다.",
+        "※ 등록제외 자료 도서관에 이미 소장중인 복본자료(개정판 포함) 파손 훼손 자료 연속 간행물의 단권 및 일부 홍보 목적으로 발간 된 자료(소책자, 리플렛 등) 기념 목적으로 발간된 자료(족보, 개인 에세이, 기관史 등) 석·박사 학위 논문 복제자료 (영인본 및 제본도서) 기타 도서관 장서로 부적합한 자료"
+      ],
+      "기증방법": [
+        "우편이나 택배로 송부하거나, 직접 방문해서 기증할 수 있습니다.",
+        "기증자료 처리 동의서를 읽어 보시고, 서명하여 기증자료와 함께 제출해 주시기 바랍니다.",
+        "대량의 자료 기증, 자료 기증시 배송 비용 및 기타 문의사항은 지식정보개발팀으로 연락해 주시기 바랍니다.",
+        "주소 : 서울시 마포구 백범로 35(신수동) 서강대학교 로욜라도서관 지식정보개발팀 기증담당자 우) 04107",
+        "[오시는 길]"
+      ],
+      "기증 자료의 처리": [
+        "기증해 주신 모든 자료는 수증자료 처리지침에 따라 처리되며, 기증 후에는 반환이 되지 않으니 유의하시기 바랍니다.",
+        "등록에서 제외된 기증 자료의 경우 재기증, 행사용, 폐기 등으로 처리될 수 있습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보개발팀 기증담당자",
+      "전화번호 :": "02-705-8186 Fax. 02-705-8695",
+      "이메일": "acqkor@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "대출 조회 및 연장, 분실신고",
+    "tab": "대출 조회 및 연장, 분실신고",
+    "url": "https://library.sogang.ac.kr/myloan/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "예약내역 조회",
+    "tab": "예약내역 조회",
+    "url": "https://library.sogang.ac.kr/myreserve/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "희망자료 신청내역",
+    "tab": "신청내역",
+    "url": "https://library.sogang.ac.kr/purchaserequest/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 대출 조회",
+    "tab": "타도서관 자료 대출 조회",
+    "url": "https://library.sogang.ac.kr/ill/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "타도서관 자료 복사 조회",
+    "tab": "타도서관 자료 복사 조회",
+    "url": "https://library.sogang.ac.kr/dds/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "자료 이용",
+    "title": "서가에 없는 자료 신고 조회",
+    "tab": "서가에 없는 자료 신고 조회",
+    "url": "https://library.sogang.ac.kr/missrepo/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "타 도서관 이용 신청 조회",
+    "tab": "타 도서관 이용 신청 조회",
+    "url": "https://library.sogang.ac.kr/otherlib/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "정보활용교육 신청 조회",
+    "tab": "정규교육",
+    "url": "https://library.sogang.ac.kr/education/applyList",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "시설/서비스 이용",
+    "title": "온라인 1:1 서비스 신청 조회",
+    "tab": "온라인 1:1 서비스 신청 조회",
+    "url": "https://library.sogang.ac.kr/req/mylist/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "메시지함",
+    "tab": "메시지함",
+    "url": "https://library.sogang.ac.kr/mynotice/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "내서재",
+    "tab": "내서재",
+    "url": "https://library.sogang.ac.kr/mylist/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "내서평",
+    "tab": "내서평",
+    "url": "https://library.sogang.ac.kr/myreview/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "개인 서비스",
+    "title": "개인정보/비밀번호 관리",
+    "tab": "개인정보/비밀번호 관리",
+    "url": "https://library.sogang.ac.kr/myprofile/relogin",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "학술DB",
+    "title": "학술DB",
+    "tab": "학술DB",
+    "url": "https://library.sogang.ac.kr/datalist/ejs/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "전자책",
+    "title": "서명",
+    "tab": "서명",
+    "url": "https://library.sogang.ac.kr/searchA/ebz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "동영상 강좌",
+    "title": "동영상 강좌 서비스",
+    "tab": "동영상 강좌 서비스",
+    "url": "https://library.sogang.ac.kr/datalist/vod/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "멀티미디어자료",
+    "title": "최신자료",
+    "tab": "최신자료",
+    "url": "https://library.sogang.ac.kr/newarrival/maz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "지정자료신청",
+    "title": "신청안내",
+    "tab": "신청안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/81",
+    "description": {
+      "자료이용": [
+        "도서관 홈페이지→자료검색→소장자료에서 검색",
+        "검색결과에서, 도서상태는 \"지정자료\" 로 표시된 자료 해당",
+        "검색결과에서 반납예정일이 있는 도서는 대출중인 상태로 대출불가임.",
+        "지정자료의 청구기호를 적어 1관2층 대출대에 제시하면 지정자료 서가 자료를 찾아 대출당일부터 다음날 오전 10시까지 제한적 으로 대출 가능",
+        "지정자료 대출 책수 : 학부생 1인당 3책, 대학원생 1인당 2책",
+        "지정자료를 연체하는 경우에는 시간당 100원의 연체료 부과"
+      ],
+      "지정자료 신청": "학기 시작 일주일 전부터 해당 학기 개설 교과목 담당교수만 신청 가능"
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "참고문헌관리 EndNote / RefWorks",
+    "title": "EndNote",
+    "tab": "EndNote",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/2163621",
+    "description": {
+      "기능 및 특징": [
+        "검색한 서지정보를 EndNote로 반입하거나 직접 입력하여 관리",
+        "특정 자료에 대한 Full-text, Figure 등을 첨부하여 관리",
+        "MicroSoft Word 호환으로 특정 학회 및 저널의 형식에 따른 참고문헌 자동 생성",
+        "Windows 버전 및 Mac 버전 별도 제공 (EndNote 21, 2025)"
+      ],
+      "EndNote 이용 안내": "설치 가이드 아래 [EndNote download] 에서 설치파일을 다운로드하고 실행하여 설치 Windows 버전은 파일 압축을 푼 후, .msi 파일을 실행하여 설치 (zip 파일 다운로드 후, 꼭 압축 '풀기' 버튼을 누른 후 msi 파일을 실행하세요. 파일 다운로드 후 압축을 풀지 않고 msi 파일을 실행하면 도서관에서 제공하지 않는 product key를 입력하라고 뜹니다.)",
+      "이용 가이드": []
+    },
+    "contact": {
+      "부서명": ": 창의지식협력팀",
+      "전화번호": "02-705-8692",
+      "이메일": "libdigt@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "OA 출판 및 APC(논문출판비용) 지원",
+    "title": "OA 출판 및 APC 지원 안내",
+    "tab": "OA 출판 및 APC 지원 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5618421",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "자료 대출 반납 안내",
+    "title": "대출 권수 및 기간",
+    "tab": "대출 권수 및 기간",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/10",
+    "description": {},
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "전자자료 이용 안내",
+    "title": "이용 TIP",
+    "tab": "이용 TIP",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/13",
+    "description": {
+      "전자자료 이용 Tip": [
+        "저널의 서명이나 출판사 등을 알고 있을 때 : 자료검색의 통합검색 또는 Browse 전자저널 이용",
+        "주제(학과)로 학술논문을 찾고자 할 때 : Browse 전자저널 이용",
+        "찾고자 하는 학술논문의 원문을 구입하라는 메시지가 나올 때 : 해당저널의 원문 제공기간 확인"
+      ]
+    },
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "희망자료 신청",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/16",
+    "description": {
+      "이용안내": [],
+      "신청방법": [
+        "도서관 홈페이지 로그인 후 희망자료 신청에서 신청할 수 있습니다.",
+        "자료의 서지사항(서명, 저자, 발행처, 발행년도, ISBN 등)을 직접 입력하거나, 인터넷서점 검색을 통해 신청할 수 있습니다.",
+        "신청 자료의 처리상황 조회 및 취소는 ‘My Library - 희망자료 신청내역’ 에서 확인할 수 있습니다.",
+        "※ 전자책 희망자료 신청 및 처리상황 조회는 하단의 ‘바로가기’를 클릭해 참고하기 바랍니다.",
+        "희망자료 신청 바로가기",
+        "국내전자책 희망자료 신청안내바로가기",
+        "국외전자책 희망자료 신청안내바로가기"
+      ],
+      "선정기준": [
+        "만화/ 카툰류 (단, 교양/시사/학술적인 내용일 경우 선별 구입)",
+        "무협, 판타지 소설 및 오락용 출판물",
+        "아동도서, 외설물, 어학교재",
+        "개인 수험서, 문제집 및 각종 실용서적",
+        "소책자(문고본 포함), 낱장형태의 자료 등",
+        "그 외 수서담당자가 부적합하다고 판단하는 자료"
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보개발팀",
+      "전화번호 :": "02-705-8692",
+      "이메일 :": "libdigt@sogang.ac.kr",
+      "전자책 구입": "창의지식협력팀"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "타도서관 자료 대출",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/17",
+    "description": {
+      "이용안내": [],
+      "신청 불가 자료": [
+        "본교 소장 단행본",
+        "단행본 이외의 자료 (학술지, 학위논문, DVD 등)",
+        "제공 도서관 규정에 의한 대출 불가 자료"
+      ],
+      "자료수령 및 반납": [
+        "자료 도착알림 (SMS 또는 메일)을 받으면 로욜라도서관 방문하여 자료 수령",
+        "수령 및 반납 장소 택배/퀵서비스 이용 시, 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크 직접방문 시, 제공기관에서 수령 (직접반납 원할 경우 서비스 담당자에게 반드시 연락)",
+        "수령 및 반납 장소"
+      ],
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libinter@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "타도서관 자료 복사",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/18",
+    "description": {
+      "이용안내": [],
+      "자료수령": [
+        "자료 도착알림(SMS 또는 메일)을 받으면 도서관에 방문하여 자료 수령",
+        "모든 자료는 인쇄물로 제공 (저작권법상 파일 제공 불가)",
+        "수령 장소 : 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크",
+        "비용지원 방법 : 국내외 타도서관 자료 복사 비용 전액",
+        "지원건수 : 개인당 신청 제한 건수와 금액은 40건 또는 10만원으로 제한 (1달 기준)"
+      ],
+      "이용요금 및 소요기간": {
+        "등기우편": []
+      },
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libill@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "일반열람실 및 스터디룸 이용안내",
+    "title": "일반열람실",
+    "tab": "일반열람실",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/21",
+    "description": {
+      "일반열람실 현황": [
+        "노트북 사용은 노트북열람석에서만 가능합니다.",
+        "외부인은 일반열람실을 사용할 수 없습니다. 발견 시 퇴실 조치합니다."
+      ],
+      "일반열람실 좌석발권 방법": [
+        "좌석발권기 발권: 각 열람실에 설치되어 있으며 신분증 인증 후 발권",
+        "모바일 발권: 모바일학생증(이용증) 접속→일반열람실 발권예약→30분 이내에 좌석발권기에서 발권 확정",
+        "1회 발권 시 4시간 이용할 수 있습니다.",
+        "2회 연장할 수 있으며, 총 12시간 연속 이용할 수 있습니다.",
+        "자리 독점을 방지하기 위해, 좌석 반납 후 1시간 이내에 동일좌석을 재발권할 수 없습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8191",
+      "이메일": "libcir2@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "전시 및 행사 공간 이용안내",
+    "title": "로욜라 이주연 갤러리 이용 안내",
+    "tab": "로욜라 이주연 갤러리 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/26",
+    "description": {
+      "로욜라 이주연 갤러리 이용 안내": [],
+      "시설 안내": [
+        "95 제곱미터(㎡)의 전시 및 행사 공간",
+        "테이블, 스툴 등의 가구와 빔 프로젝터, 스크린, 음향기기를 기본으로 제공",
+        "요청에 따라 디지털 액자, 디지털 사이니지(DID), 전시용 선반 등 추가 제공 가능",
+        "별도 냉난방 시설 및 교내 Wifi 이용 가능"
+      ],
+      "이용대상": [
+        "교내 구성원",
+        "정보서비스팀장이 승인하는 개인 및 단체"
+      ],
+      "신청제한": [
+        "사용 신청서 허위 기재",
+        "행사의 목적 또는 내용이 법령이나 사회적 통념에 위배될 우려가 있는 경우",
+        "행사로 인하여 시설물의 훼손 또는 각종 대여 기자재의 파손이 우려되는 경우",
+        "행사로 인해 안전사고 발생의 위험성이 존재하는 경우",
+        "이전에 금지행위 위반이 적발되어 사용에 제한이 필요한 신청자 또는 단체의 경우",
+        "그 외 로욜라 이주연 갤러리에서 수용이 부적합한 것으로 판단되는 행사의 경우"
+      ],
+      "신청방법": []
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "라파엘 라이브 스튜디오 이용 안내",
+    "title": "촬영 스튜디오",
+    "tab": "촬영 스튜디오",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4179621",
+    "description": {
+      "장비 소개": [
+        "카메라1: Canon XF105 A (1대)",
+        "카메라2: Canon VIXIA HF G70 (３대)",
+        "촬영 및 편집용 PC",
+        "촬영용 스위처: ATEM MINI PRO ISO",
+        "촬영 S/W: OBS Studio",
+        "오디오 믹서: FLOW8",
+        "마이크(2대)",
+        "스탠드 조명 (4대)",
+        "모니터링 TV",
+        "자동 크로마키: 흰색, 녹색, 청색",
+        "프롬프터",
+        "촬영석: 테이블 1대, 의자 2대",
+        "판서용테블릿 (1대)",
+        "스트림덱 (1대)"
+      ],
+      "신청 방법": [
+        "시설 사용 최소 3일 전(월~금)까지 정보서비스팀 담당자에게 전화(02-705-8197) 또는 방문 신청하고 사용 신청서(도서관 홈페이지>도서관 소개>각종 양식 다운로드)를 제출",
+        "1일 최대 2회, 1회 최대 2시간 이용 가능",
+        "1달 최대 8시간 이용 가능",
+        "사용 신청서"
+      ]
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "캐럴 이용 신청",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/28",
+    "description": {
+      "시설 안내": [
+        "3관 4층 캐럴 24실 제공",
+        "학습용 책상, 의자, PC(교내 네트워크 연결) 등"
+      ],
+      "이용절차": [
+        "도서관에서는 매년 2월과 8월 중순에 도서관 홈페이지를 통해 캐럴 이용 신청을 받습니다.",
+        "선정 원칙에 따라 최종 이용자를 확정하여 도서관 홈페이지에 공고합니다.",
+        "선정된 이용자는 도서관 대출대에 방문하여 캐럴 이용 신청서 및 개인정보 수집 ‧ 활용 동의서를 작성하며, 이 때 선착순으로 캐럴을 선택합니다.",
+        "캐럴이 배정되면 해당 캐럴의 도어록 비밀번호를 배부받습니다.",
+        "첫 달과 마지막 달을 제외한 매달 중순에 다음 달 사용 여부를 도서관 홈페이지를 통해 신청해야 다음 달 이용이 가능합니다.",
+        "퇴실할 때에는 PC의 개인자료는 전부 삭제해야 합니다."
+      ],
+      "선정 원칙": [
+        "논문학기 대학원생 등록자의 우선순위는 다음과 같습니다. ㄱ. 박사과정 학생 ㄴ. 석사과정 학생 중 우선순위 학기(휴학학기 포함)가 오래된 학생 학과별 공정 배분 성적(총 평점) 우수자 ㄷ. 선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다.",
+        "본교 퇴직 교수의 선정은 선착순에 따릅니다. 단, 신청자가 없을 경우 논문학기 대학원생 등록자에게 좌석을 배정할 수 있습니다.",
+        "원칙적으로 재이용 신청자는 선정대상에서 제외됩니다. 단, 지원자 미달 시 1회 재이용이 가능합니다.",
+        "박사과정 학생",
+        "석사과정 학생 중 우선순위",
+        "선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다."
+      ],
+      "주의사항": [
+        "캐럴과 관련된 공지는 '카카오워크' 앱과 캐럴 이용 신청서에 기입한 '이메일'로 전달됩니다.",
+        "캐럴 이용 확정자가 이용을 포기할 경우, 1회 사용한 것으로 간주합니다.",
+        "대리 신청 시 본인 및 신청자 모두 캐럴 사용이 불가능합니다.",
+        "이용자는 도서관에서 제시하는 캐럴 이용자 안내사항을 준수해야 하며, 이를 위반한 경우 퇴실 조치될 수 있습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀",
+      "전화번호": "02-705-8198",
+      "이메일": "libstudy@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "타도서관 이용 신청",
+    "title": "이용 안내",
+    "tab": "이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/32",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "오시는 길 / 층별 안내",
+    "title": "도서관위치",
+    "tab": "도서관위치",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/83",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "공지사항",
+    "title": "일반공지",
+    "tab": "일반공지",
+    "url": "https://library.sogang.ac.kr/bbs/list/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "로욜라원프로젝트",
+    "title": "안내",
+    "tab": "안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/48",
+    "description": {},
+    "contact": {
+      "부서명": "대외교류처",
+      "전화번호 :": "02-705-8050 Fax. 02-705-8051",
+      "이메일": "fund@sogang.ac.kr",
+      "홈페이지": "https://give.sogang.ac.kr"
+    }
+  },
+  {
+    "category": "My Library",
+    "subcategory": "희망자료 신청내역",
+    "title": "신청내역",
+    "tab": "신청내역",
+    "url": "https://library.sogang.ac.kr/purchaserequest/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "정보활용교육 신청 조회",
+    "title": "정규교육",
+    "tab": "정규교육",
+    "url": "https://library.sogang.ac.kr/education/applyList",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "내서재",
+    "title": "내서재",
+    "tab": "내서재",
+    "url": "https://library.sogang.ac.kr/mylist/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "서명",
+    "title": "서명",
+    "tab": "서명",
+    "url": "https://library.sogang.ac.kr/searchA/ebz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "동영상 강좌 서비스",
+    "title": "동영상 강좌 서비스",
+    "tab": "동영상 강좌 서비스",
+    "url": "https://library.sogang.ac.kr/datalist/vod/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "자료검색",
+    "subcategory": "최신자료",
+    "title": "최신자료",
+    "tab": "최신자료",
+    "url": "https://library.sogang.ac.kr/newarrival/maz",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "신청안내",
+    "title": "신청안내",
+    "tab": "신청안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/81",
+    "description": {
+      "자료이용": [
+        "도서관 홈페이지→자료검색→소장자료에서 검색",
+        "검색결과에서, 도서상태는 \"지정자료\" 로 표시된 자료 해당",
+        "검색결과에서 반납예정일이 있는 도서는 대출중인 상태로 대출불가임.",
+        "지정자료의 청구기호를 적어 1관2층 대출대에 제시하면 지정자료 서가 자료를 찾아 대출당일부터 다음날 오전 10시까지 제한적 으로 대출 가능",
+        "지정자료 대출 책수 : 학부생 1인당 3책, 대학원생 1인당 2책",
+        "지정자료를 연체하는 경우에는 시간당 100원의 연체료 부과"
+      ],
+      "지정자료 신청": "학기 시작 일주일 전부터 해당 학기 개설 교과목 담당교수만 신청 가능"
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "EndNote",
+    "title": "EndNote",
+    "tab": "EndNote",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/2163621",
+    "description": {
+      "기능 및 특징": [
+        "검색한 서지정보를 EndNote로 반입하거나 직접 입력하여 관리",
+        "특정 자료에 대한 Full-text, Figure 등을 첨부하여 관리",
+        "MicroSoft Word 호환으로 특정 학회 및 저널의 형식에 따른 참고문헌 자동 생성",
+        "Windows 버전 및 Mac 버전 별도 제공 (EndNote 21, 2025)"
+      ],
+      "EndNote 이용 안내": "설치 가이드 아래 [EndNote download] 에서 설치파일을 다운로드하고 실행하여 설치 Windows 버전은 파일 압축을 푼 후, .msi 파일을 실행하여 설치 (zip 파일 다운로드 후, 꼭 압축 '풀기' 버튼을 누른 후 msi 파일을 실행하세요. 파일 다운로드 후 압축을 풀지 않고 msi 파일을 실행하면 도서관에서 제공하지 않는 product key를 입력하라고 뜹니다.)",
+      "이용 가이드": []
+    },
+    "contact": {
+      "부서명": ": 창의지식협력팀",
+      "전화번호": "02-705-8692",
+      "이메일": "libdigt@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "연구학습지원",
+    "subcategory": "OA 출판 및 APC 지원 안내",
+    "title": "OA 출판 및 APC 지원 안내",
+    "tab": "OA 출판 및 APC 지원 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/5618421",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "대출 권수 및 기간",
+    "title": "대출 권수 및 기간",
+    "tab": "대출 권수 및 기간",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/10",
+    "description": {},
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8645",
+      "이메일": "libcir@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용 TIP",
+    "title": "이용 TIP",
+    "tab": "이용 TIP",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/13",
+    "description": {
+      "전자자료 이용 Tip": [
+        "저널의 서명이나 출판사 등을 알고 있을 때 : 자료검색의 통합검색 또는 Browse 전자저널 이용",
+        "주제(학과)로 학술논문을 찾고자 할 때 : Browse 전자저널 이용",
+        "찾고자 하는 학술논문의 원문을 구입하라는 메시지가 나올 때 : 해당저널의 원문 제공기간 확인"
+      ]
+    },
+    "contact": {}
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용안내",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/16",
+    "description": {
+      "이용안내": [],
+      "신청방법": [
+        "도서관 홈페이지 로그인 후 희망자료 신청에서 신청할 수 있습니다.",
+        "자료의 서지사항(서명, 저자, 발행처, 발행년도, ISBN 등)을 직접 입력하거나, 인터넷서점 검색을 통해 신청할 수 있습니다.",
+        "신청 자료의 처리상황 조회 및 취소는 ‘My Library - 희망자료 신청내역’ 에서 확인할 수 있습니다.",
+        "※ 전자책 희망자료 신청 및 처리상황 조회는 하단의 ‘바로가기’를 클릭해 참고하기 바랍니다.",
+        "희망자료 신청 바로가기",
+        "국내전자책 희망자료 신청안내바로가기",
+        "국외전자책 희망자료 신청안내바로가기"
+      ],
+      "선정기준": [
+        "만화/ 카툰류 (단, 교양/시사/학술적인 내용일 경우 선별 구입)",
+        "무협, 판타지 소설 및 오락용 출판물",
+        "아동도서, 외설물, 어학교재",
+        "개인 수험서, 문제집 및 각종 실용서적",
+        "소책자(문고본 포함), 낱장형태의 자료 등",
+        "그 외 수서담당자가 부적합하다고 판단하는 자료"
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보개발팀",
+      "전화번호 :": "02-705-8692",
+      "이메일 :": "libdigt@sogang.ac.kr",
+      "전자책 구입": "창의지식협력팀"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용안내",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/17",
+    "description": {
+      "이용안내": [],
+      "신청 불가 자료": [
+        "본교 소장 단행본",
+        "단행본 이외의 자료 (학술지, 학위논문, DVD 등)",
+        "제공 도서관 규정에 의한 대출 불가 자료"
+      ],
+      "자료수령 및 반납": [
+        "자료 도착알림 (SMS 또는 메일)을 받으면 로욜라도서관 방문하여 자료 수령",
+        "수령 및 반납 장소 택배/퀵서비스 이용 시, 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크 직접방문 시, 제공기관에서 수령 (직접반납 원할 경우 서비스 담당자에게 반드시 연락)",
+        "수령 및 반납 장소"
+      ],
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libinter@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용안내",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/18",
+    "description": {
+      "이용안내": [],
+      "자료수령": [
+        "자료 도착알림(SMS 또는 메일)을 받으면 도서관에 방문하여 자료 수령",
+        "모든 자료는 인쇄물로 제공 (저작권법상 파일 제공 불가)",
+        "수령 장소 : 로욜라도서관 1관 2층 타도서관 자료 대출/복사 서비스 데스크",
+        "비용지원 방법 : 국내외 타도서관 자료 복사 비용 전액",
+        "지원건수 : 개인당 신청 제한 건수와 금액은 40건 또는 10만원으로 제한 (1달 기준)"
+      ],
+      "이용요금 및 소요기간": {
+        "등기우편": []
+      },
+      "이용대상": [],
+      "대상자료": []
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8174",
+      "이메일": "libill@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "일반열람실",
+    "title": "일반열람실",
+    "tab": "일반열람실",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/21",
+    "description": {
+      "일반열람실 현황": [
+        "노트북 사용은 노트북열람석에서만 가능합니다.",
+        "외부인은 일반열람실을 사용할 수 없습니다. 발견 시 퇴실 조치합니다."
+      ],
+      "일반열람실 좌석발권 방법": [
+        "좌석발권기 발권: 각 열람실에 설치되어 있으며 신분증 인증 후 발권",
+        "모바일 발권: 모바일학생증(이용증) 접속→일반열람실 발권예약→30분 이내에 좌석발권기에서 발권 확정",
+        "1회 발권 시 4시간 이용할 수 있습니다.",
+        "2회 연장할 수 있으며, 총 12시간 연속 이용할 수 있습니다.",
+        "자리 독점을 방지하기 위해, 좌석 반납 후 1시간 이내에 동일좌석을 재발권할 수 없습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀 대출실",
+      "전화번호": "02-705-8191",
+      "이메일": "libcir2@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "로욜라 이주연 갤러리 이용 안내",
+    "title": "로욜라 이주연 갤러리 이용 안내",
+    "tab": "로욜라 이주연 갤러리 이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/26",
+    "description": {
+      "로욜라 이주연 갤러리 이용 안내": [],
+      "시설 안내": [
+        "95 제곱미터(㎡)의 전시 및 행사 공간",
+        "테이블, 스툴 등의 가구와 빔 프로젝터, 스크린, 음향기기를 기본으로 제공",
+        "요청에 따라 디지털 액자, 디지털 사이니지(DID), 전시용 선반 등 추가 제공 가능",
+        "별도 냉난방 시설 및 교내 Wifi 이용 가능"
+      ],
+      "이용대상": [
+        "교내 구성원",
+        "정보서비스팀장이 승인하는 개인 및 단체"
+      ],
+      "신청제한": [
+        "사용 신청서 허위 기재",
+        "행사의 목적 또는 내용이 법령이나 사회적 통념에 위배될 우려가 있는 경우",
+        "행사로 인하여 시설물의 훼손 또는 각종 대여 기자재의 파손이 우려되는 경우",
+        "행사로 인해 안전사고 발생의 위험성이 존재하는 경우",
+        "이전에 금지행위 위반이 적발되어 사용에 제한이 필요한 신청자 또는 단체의 경우",
+        "그 외 로욜라 이주연 갤러리에서 수용이 부적합한 것으로 판단되는 행사의 경우"
+      ],
+      "신청방법": []
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "촬영 스튜디오",
+    "title": "촬영 스튜디오",
+    "tab": "촬영 스튜디오",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/4179621",
+    "description": {
+      "장비 소개": [
+        "카메라1: Canon XF105 A (1대)",
+        "카메라2: Canon VIXIA HF G70 (３대)",
+        "촬영 및 편집용 PC",
+        "촬영용 스위처: ATEM MINI PRO ISO",
+        "촬영 S/W: OBS Studio",
+        "오디오 믹서: FLOW8",
+        "마이크(2대)",
+        "스탠드 조명 (4대)",
+        "모니터링 TV",
+        "자동 크로마키: 흰색, 녹색, 청색",
+        "프롬프터",
+        "촬영석: 테이블 1대, 의자 2대",
+        "판서용테블릿 (1대)",
+        "스트림덱 (1대)"
+      ],
+      "신청 방법": [
+        "시설 사용 최소 3일 전(월~금)까지 정보서비스팀 담당자에게 전화(02-705-8197) 또는 방문 신청하고 사용 신청서(도서관 홈페이지>도서관 소개>각종 양식 다운로드)를 제출",
+        "1일 최대 2회, 1회 최대 2시간 이용 가능",
+        "1달 최대 8시간 이용 가능",
+        "사용 신청서"
+      ]
+    },
+    "contact": {
+      "부서명": "정보서비스팀",
+      "전화번호": "02-705-8197",
+      "이메일": "libsns@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용안내",
+    "title": "이용안내",
+    "tab": "이용안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/28",
+    "description": {
+      "시설 안내": [
+        "3관 4층 캐럴 24실 제공",
+        "학습용 책상, 의자, PC(교내 네트워크 연결) 등"
+      ],
+      "이용절차": [
+        "도서관에서는 매년 2월과 8월 중순에 도서관 홈페이지를 통해 캐럴 이용 신청을 받습니다.",
+        "선정 원칙에 따라 최종 이용자를 확정하여 도서관 홈페이지에 공고합니다.",
+        "선정된 이용자는 도서관 대출대에 방문하여 캐럴 이용 신청서 및 개인정보 수집 ‧ 활용 동의서를 작성하며, 이 때 선착순으로 캐럴을 선택합니다.",
+        "캐럴이 배정되면 해당 캐럴의 도어록 비밀번호를 배부받습니다.",
+        "첫 달과 마지막 달을 제외한 매달 중순에 다음 달 사용 여부를 도서관 홈페이지를 통해 신청해야 다음 달 이용이 가능합니다.",
+        "퇴실할 때에는 PC의 개인자료는 전부 삭제해야 합니다."
+      ],
+      "선정 원칙": [
+        "논문학기 대학원생 등록자의 우선순위는 다음과 같습니다. ㄱ. 박사과정 학생 ㄴ. 석사과정 학생 중 우선순위 학기(휴학학기 포함)가 오래된 학생 학과별 공정 배분 성적(총 평점) 우수자 ㄷ. 선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다.",
+        "본교 퇴직 교수의 선정은 선착순에 따릅니다. 단, 신청자가 없을 경우 논문학기 대학원생 등록자에게 좌석을 배정할 수 있습니다.",
+        "원칙적으로 재이용 신청자는 선정대상에서 제외됩니다. 단, 지원자 미달 시 1회 재이용이 가능합니다.",
+        "박사과정 학생",
+        "석사과정 학생 중 우선순위",
+        "선정된 이용자에게 매달 이용여부를 확인하며, 여석이 발생할 경우 결원을 충원할 수 있습니다. 결원 충원 시 우선순위는 위와 동일합니다."
+      ],
+      "주의사항": [
+        "캐럴과 관련된 공지는 '카카오워크' 앱과 캐럴 이용 신청서에 기입한 '이메일'로 전달됩니다.",
+        "캐럴 이용 확정자가 이용을 포기할 경우, 1회 사용한 것으로 간주합니다.",
+        "대리 신청 시 본인 및 신청자 모두 캐럴 사용이 불가능합니다.",
+        "이용자는 도서관에서 제시하는 캐럴 이용자 안내사항을 준수해야 하며, 이를 위반한 경우 퇴실 조치될 수 있습니다."
+      ]
+    },
+    "contact": {
+      "부서명": "지식정보기획팀",
+      "전화번호": "02-705-8198",
+      "이메일": "libstudy@sogang.ac.kr"
+    }
+  },
+  {
+    "category": "도서관 이용",
+    "subcategory": "이용 안내",
+    "title": "이용 안내",
+    "tab": "이용 안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/32",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "도서관위치",
+    "title": "도서관위치",
+    "tab": "도서관위치",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/83",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "일반공지",
+    "title": "일반공지",
+    "tab": "일반공지",
+    "url": "https://library.sogang.ac.kr/bbs/list/1",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "도서관 소개",
+    "subcategory": "안내",
+    "title": "안내",
+    "tab": "안내",
+    "url": "https://library.sogang.ac.kr/htmlmanager/service/48",
+    "description": {},
+    "contact": {
+      "부서명": "대외교류처",
+      "전화번호 :": "02-705-8050 Fax. 02-705-8051",
+      "이메일": "fund@sogang.ac.kr",
+      "홈페이지": "https://give.sogang.ac.kr"
+    }
+  },
+  {
+    "category": "My Library",
+    "subcategory": "신청내역",
+    "title": "신청내역",
+    "tab": "신청내역",
+    "url": "https://library.sogang.ac.kr/purchaserequest/list",
+    "description": {},
+    "contact": {}
+  },
+  {
+    "category": "My Library",
+    "subcategory": "정규교육",
+    "title": "정규교육",
+    "tab": "정규교육",
+    "url": "https://library.sogang.ac.kr/education/applyList",
+    "description": {},
+    "contact": {}
+  }
+]
