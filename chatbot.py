@@ -19,6 +19,27 @@ import json
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
 
+############################### 0단계 : 대화 맥락 유지 관련 HISTORY 함수들 ##########################
+# 세션 히스토리 초기화
+if "chat_history" not in st.session_state:
+    # role: "user" | "assistant"
+    st.session_state.chat_history = []
+if "summary" not in st.session_state:
+    st.session_state.summary = ""   # (선택) 요약 버퍼
+
+# 리셋 버튼
+st.sidebar.button("대화 초기화", on_click=lambda: (st.session_state.update(chat_history=[]), st.session_state.update(summary="")))
+
+# 히스토리 포맷터
+def format_history_for_prompt(history, window_size=8):
+    """프롬프트에 넣을 수 있게 간단 문자열로 정리"""
+    recent = history[-window_size:]
+    lines = []
+    for m in recent:
+        prefix = "사용자" if m["role"] == "user" else "어시스턴트"
+        lines.append(f"{prefix}: {m['content']}")
+    return "\n".join(lines)
+
 
 
 ############################### 1단계 : JSON 문서를 벡터DB에 저장하는 함수들 ##########################
@@ -80,7 +101,7 @@ def save_to_vector_store(documents: List[Document]) -> None:
 
 ## 사용자 질문에 대한 RAG 처리
 @st.cache_data
-def process_question(user_question):
+def process_question(user_question, history_text):
 
     embeddings = HuggingFaceEmbeddings(model_name="jhgan/ko-sbert-nli")
 
@@ -95,7 +116,11 @@ def process_question(user_question):
     ## RAG 체인 선언
     chain = get_rag_chain()
     ## 질문과 문맥을 넣어서 체인 결과 호출
-    response = chain.invoke({"question": user_question, "context": retrieve_docs})
+    response = chain.invoke({
+        "question": user_question, 
+        "context": retrieve_docs,
+        "history": history_text
+    })
 
     return response, retrieve_docs
 
@@ -107,6 +132,8 @@ def get_rag_chain() -> Runnable:
     - 질문에 대한 응답을 해줘
     - 간결하게 5줄 이내로 해줘
     - 곧바로 응답결과를 말해줘
+    
+    이전대화 : {history}
 
     컨텍스트 : {context}
 
@@ -148,12 +175,30 @@ def main():
         #         save_to_vector_store(smaller_documents)
         user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
-        
-    with right_column:    
-        if user_question:
-            response, context = process_question(user_question)
-            st.text(response)
-            # st.text(context)
+    
+    if user_question:
+        # 1) 사용자 질문 히스토리에 추가
+        st.session_state.chat_history.append({"role": "user", "content": user_question})
+
+        # 2) 히스토리 윈도우를 프롬프트용 텍스트로 변환
+        history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
+
+        # 3) 응답 생성
+        response, context = process_question(user_question, history_text)
+
+        # 4) 어시스턴트 응답을 히스토리에 추가
+        st.session_state.chat_history.append({"role": "assistant", "content": response})
+
+        # 5) 좌측: 대화 렌더링
+        with left_column:
+            for msg in st.session_state.chat_history[-12:]:  # 최근 12개만 표시
+                if msg["role"] == "user":
+                    st.chat_message("user").write(msg["content"])
+                else:
+                    st.chat_message("assistant").write(msg["content"])
+
+        # 6) 우측: 근거 문서
+        with right_column:
             for document in context:
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
