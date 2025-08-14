@@ -132,7 +132,7 @@ def natural_sort_key(s):
 
 def main():
     # 공지사항 일단 보여주기
-    show_notices()
+    # show_notices()
 
     if not os.path.exists("faiss_index"):
         #json_file = "database/test_data.json"
@@ -156,8 +156,6 @@ def main():
         #         save_to_vector_store(smaller_documents)
         user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
-        
-    with right_column:    
         if user_question:
             response, context = process_question(user_question)
             st.text(response)
@@ -166,6 +164,10 @@ def main():
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
                     st.text(document.metadata.get('url', ''))
+
+    with right_column:    
+        show_notices()
+        
 
 if __name__ == "__main__":
     main()
