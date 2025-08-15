@@ -10,41 +10,58 @@ BASE_URL = "https://library.sogang.ac.kr"
 NOTICE_URL = "https://library.sogang.ac.kr/bbs/list/1"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SogangNoticeBot/1.0)"}
 
+
 @st.cache_data(ttl=300)
 def fetch_notices():
-    resp = requests.get(NOTICE_URL, headers=HEADERS, timeout=10)
-    resp.raise_for_status()
-    soup = BeautifulSoup(resp.text, "html.parser")
-    # print(soup.prettify()[:1500])
+    all_data = []
+    page = 1
+    stop_crawling = False
 
-    rows = soup.select("table tbody tr")
-    data = []
-    for tr in rows:
-        cols = tr.find_all("td")
-        if len(cols) < 5:
-            continue
-        no = cols[0].get_text(strip=True)
-        title_cell = cols[1]
-        a = title_cell.find("a")
-        title = a.get_text(strip=True) if a else title_cell.get_text(strip=True)
-        href = urljoin(BASE_URL, a["href"]) if a and a.has_attr("href") else NOTICE_URL
-        author = cols[2].get_text(strip=True)
-        date = cols[3].get_text(strip=True)
-        views = cols[4].get_text(strip=True)
+    while not stop_crawling:
+        url = f"{NOTICE_URL}?pn={page}"
+        resp = requests.get(url, headers=HEADERS)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.text, "html.parser")
 
-        data.append({
-            "No.": no,
-            "제목": title,
-            "작성자": author,
-            "작성일": date,
-            "조회수": views,
-            "링크": href
-        })
+        rows = soup.select("table tbody tr")
+        if not rows:
+            break
 
-    return pd.DataFrame(data)
+        for tr in rows:
+            cols = tr.find_all("td")
+            if len(cols) < 5:
+                continue
+
+            no = cols[0].get_text(strip=True)
+            title_cell = cols[1]
+            a = title_cell.find("a")
+            title = a.get_text(strip=True) if a else title_cell.get_text(strip=True)
+            href = urljoin(BASE_URL, a["href"]) if a and a.has_attr("href") else NOTICE_URL
+            author = cols[2].get_text(strip=True)
+            date = cols[3].get_text(strip=True)
+            views = cols[4].get_text(strip=True)
+
+            # 2024 또는 2025만 가져오기
+            if not (date.startswith("2024") or date.startswith("2025")):
+                stop_crawling = True
+                break
+
+            all_data.append({
+                "No.": no,
+                "제목": title,
+                "작성자": author,
+                "작성일": date,
+                "조회수": views,
+                "링크": href
+            })
+
+        page += 1
+
+    return pd.DataFrame(all_data)
+
+
 
 @st.cache_data(ttl=600)
-
 def fetch_notice_detail(url: str) -> dict:
     r = requests.get(url, headers=HEADERS, timeout=10)
     r.raise_for_status()
