@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import pandas as pd
 import streamlit as st
+import re
 
 BASE_URL = "https://library.sogang.ac.kr"
 NOTICE_URL = "https://library.sogang.ac.kr/bbs/list/1"
@@ -52,7 +53,6 @@ def fetch_notice_detail(url: str) -> dict:
     # boardContent를 본문으로 잡기
     content = s.select_one(".boardContent")
     if not content:
-        # 다른 후보들 시도
         content = (
             s.select_one(".board-view .board-txt") or
             s.select_one(".bbs_view .view_con") or
@@ -62,43 +62,29 @@ def fetch_notice_detail(url: str) -> dict:
         )
 
     body_parts = []
-
     if content:
-        # 이미지 처리
         for img in content.find_all("img"):
             img_url = urljoin(BASE_URL, img.get("src"))
             body_parts.append(f"![이미지]({img_url})")
 
-        # 텍스트 처리
         text_only = clean_notice_content(content)
         if text_only:
             body_parts.append(text_only)
 
+    body_text = "\n".join(body_parts)
 
-    # if content:
-    #     # 이미지 처리
-    #     for img in content.find_all("img"):
-    #         img_url = urljoin(BASE_URL, img.get("src"))
-    #         body_parts.append(f"![이미지]({img_url})")
-
-    #     # 텍스트 처리
-    #     text_only = content.get_text("\n", strip=True)
-    #     if text_only:
-    #         body_parts.append(text_only)
-
-    body_text = "\n\n".join(body_parts)
-
-    # 첨부파일 처리
     atts = []
     for a in s.select('a[href]'):
         href = a["href"]
         if any(k in href.lower() for k in ["download", "attach", "file", "files"]):
             atts.append({"name": a.get_text(strip=True), "url": urljoin(BASE_URL, href)})
 
-    seen = set(); attachments = []
+    seen = set()
+    attachments = []
     for x in atts:
         if x["url"] not in seen:
-            seen.add(x["url"]); attachments.append(x)
+            seen.add(x["url"])
+            attachments.append(x)
 
     title = (s.select_one("h3, h2, .title, .board-tit") or content)
     title_text = title.get_text(strip=True) if title else ""
@@ -107,9 +93,49 @@ def fetch_notice_detail(url: str) -> dict:
         "url": url,
         "title": title_text,
         "body": body_text,
-        "attachments": attachments
+        "attachments": attachments,
+        "html": r.text  # HTML 원문 추가
     }
 
+
+# def show_notices():
+#     st.subheader("공지사항")
+#     with st.spinner("목록 불러오는 중..."):
+#         df = fetch_notices()
+#     st.dataframe(df, use_container_width=True, hide_index=True)
+
+#     titles = df["제목"].tolist()
+#     choice = st.selectbox("공지사항 자세히 보기", options=["선택 안 함"] + titles)
+#     if choice != "선택 안 함":
+#         url = df.loc[df["제목"] == choice, "링크"].iloc[0]
+#         with st.spinner("상세 불러오는 중..."):
+#             d = fetch_notice_detail(url)
+
+#         st.markdown(f"### {choice}")
+#         st.markdown(d["body"] or "(본문을 찾지 못했습니다)")
+
+#         # addFiles 안의 첨부파일만 추출
+#         soup = BeautifulSoup(d["html"], "html.parser")
+#         addfiles_links = [a["href"] for a in soup.select("ul.addFiles a")]
+
+#         cjaqn = True
+#         for a in d["attachments"]:
+#             if a["url"] in addfiles_links and "개인정보/비밀번호 관리" not in a["name"]:
+#                 if cjaqn:
+#                     st.markdown("**첨부:**")
+#                     cjaqn = False
+#                 st.write(f"- [{a['name']}]({a['url']})")
+
+#     if st.button("공지사항 새로고침"):
+#         fetch_notices.clear()
+#         st.rerun()
+
+#     st.divider()
+#     if st.button("캐시 지우고 전체 새로고침"):
+#         st.cache_data.clear()
+#         st.success("앱 캐시를 모두 지웠습니다. 다시 로딩합니다.")
+#         time.sleep(1)
+#         st.rerun()
 
 def show_notices():
     st.subheader("공지사항")
@@ -117,81 +143,47 @@ def show_notices():
         df = fetch_notices()
     st.dataframe(df, use_container_width=True, hide_index=True)
 
-    # st.divider()
-    
-    # 1) 선택 후 상세 보기
     titles = df["제목"].tolist()
     choice = st.selectbox("공지사항 자세히 보기", options=["선택 안 함"] + titles)
     if choice != "선택 안 함":
         url = df.loc[df["제목"] == choice, "링크"].iloc[0]
         with st.spinner("상세 불러오는 중..."):
             d = fetch_notice_detail(url)
+
         st.markdown(f"### {choice}")
-        
-        if "![이미지]" in d["body"]:
-            st.write(d["body"] or "(본문을 찾지 못했습니다)")
-        else:
-            st.text(d["body"] or "(본문을 찾지 못했습니다)")
-        
-        if d["attachments"]:
+        st.markdown(d["body"] or "(본문을 찾지 못했습니다)")
+
+        # addFiles 안의 첨부파일만 추출
+        soup = BeautifulSoup(d["html"], "html.parser")
+        addfiles_links = [a["href"] for a in soup.select("ul.addFiles a")]
+
+        # 필터링된 첨부파일 리스트 생성
+        filtered_attachments = [
+            a for a in d["attachments"]
+            if a["url"] in addfiles_links and "개인정보/비밀번호 관리" not in a["name"]
+        ]
+
+        # 첨부파일 출력
+        if filtered_attachments:
             st.markdown("**첨부:**")
-            for a in d["attachments"]:
+            for a in filtered_attachments:
                 st.write(f"- [{a['name']}]({a['url']})")
-    
-    # 2) 공지사항 새로고침
+
     if st.button("공지사항 새로고침"):
-            fetch_notices.clear()
-            st.rerun()
+        fetch_notices.clear()
+        st.rerun()
 
-
-def get_notice_content(url):
-    resp = requests.get(url)
-    soup = BeautifulSoup(resp.text, "html.parser")
-
-    content_div = soup.find("div", class_="boardContent")
-    if not content_div:
-        return "(본문을 찾지 못했습니다)"
-
-    # <br> → 줄바꿈
-    for br in content_div.find_all("br"):
-        br.replace_with("\n")
-
-    # 블록 태그(<p>, <div>, <li>)는 문단 구분용 줄바꿈
-    for block in content_div.find_all(["p", "div", "li"]):
-        block.insert_before("\n")
-        block.insert_after("\n")
-
-    # 인라인 태그는 줄바꿈 없이 텍스트만 합치기
-    text = content_div.get_text()
-    
-    # 여러 줄바꿈을 하나로 정리
-    lines = [line.strip() for line in text.splitlines()]
-    clean_text = "\n".join(line for line in lines if line)
-
-    return clean_text
-
-
+    st.divider()
+    if st.button("캐시 지우고 전체 새로고침"):
+        st.cache_data.clear()
+        st.success("앱 캐시를 모두 지웠습니다. 다시 로딩합니다.")
+        time.sleep(1)
+        st.rerun()
 
 
 def clean_notice_content(content):
-    # 1. <br> 태그는 줄바꿈
     for br in content.find_all("br"):
         br.replace_with("\n")
-
-    # 2. 문단 태그는 전후에 줄바꿈 삽입
-    for block in content.find_all(["p", "div", "li"]):
-        block.insert_before("\n")
-        block.insert_after("\n")
-
-    # 3. 인라인 태그는 그냥 풀어서 텍스트만 유지
-    for inline in content.find_all(["span", "strong", "b", "em", "font"]):
-        inline.unwrap()
-
-    # 4. 전체 텍스트 추출
     text = content.get_text()
-
-    # 5. 불필요한 연속 줄바꿈 정리
-    lines = [line.strip() for line in text.splitlines()]
-    clean_text = "".join(line for line in lines if line)
-
-    return clean_text
+    clean_text = re.sub(r'\n{3,}', '\n\n', text)
+    return clean_text.strip()
