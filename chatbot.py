@@ -19,6 +19,7 @@ import json
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
 
+from notice_crawler import show_notices
 
 
 ############################### 1단계 : JSON 문서를 벡터DB에 저장하는 함수들 ##########################
@@ -100,12 +101,16 @@ def process_question(user_question):
     return response, retrieve_docs
 
 
+#- 질문에 대한 응답을 해줘
+# 간결하게 5줄 이내로 해줘
+# 곧바로 응답결과를 말해줘
+
 
 def get_rag_chain() -> Runnable:
     template = """
     다음의 컨텍스트를 활용해서 질문에 답변해줘
     - 질문에 대한 응답을 해줘
-    - 간결하게 5줄 이내로 해줘
+    - 5-10줄 이내로 해줘
     - 곧바로 응답결과를 말해줘
 
     컨텍스트 : {context}
@@ -126,9 +131,12 @@ def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
+    # 공지사항 일단 보여주기
+    # show_notices()
 
     if not os.path.exists("faiss_index"):
-        json_file = "database/test_data.json"
+        #json_file = "database/test_data.json"
+        json_file = "database/detail_data.json"
         json_document = json_to_documents(json_file)
         smaller_documents = chunk_documents(json_document)
         save_to_vector_store(smaller_documents)
@@ -148,8 +156,6 @@ def main():
         #         save_to_vector_store(smaller_documents)
         user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
                                     placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
-        
-    with right_column:    
         if user_question:
             response, context = process_question(user_question)
             st.text(response)
@@ -158,6 +164,10 @@ def main():
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
                     st.text(document.metadata.get('url', ''))
+
+    with right_column:    
+        show_notices()
+        
 
 if __name__ == "__main__":
     main()
