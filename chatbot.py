@@ -19,6 +19,8 @@ import json
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
 
+from notice_crawler import show_notices
+
 ############################### 0단계 : 대화 맥락 유지 관련 HISTORY 함수들 ##########################
 # 세션 히스토리 초기화
 if "chat_history" not in st.session_state:
@@ -199,6 +201,8 @@ def main():
 
         # 6) 우측: 근거 문서
         with right_column:
+            show_notices()
+
             for document in context:
                 with st.expander("관련 문서"):
                     st.text(document.page_content)
