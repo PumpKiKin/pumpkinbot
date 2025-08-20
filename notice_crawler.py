@@ -10,7 +10,6 @@ BASE_URL = "https://library.sogang.ac.kr"
 NOTICE_URL = "https://library.sogang.ac.kr/bbs/list/1"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; SogangNoticeBot/1.0)"}
 
-
 @st.cache_data(ttl=300)
 def fetch_notices():
     all_data = []
@@ -59,9 +58,8 @@ def fetch_notices():
 
     return pd.DataFrame(all_data)
 
-
-
 @st.cache_data(ttl=600)
+# 사진, 텍스트 / 표는 안 됨.
 def fetch_notice_detail(url: str) -> dict:
     r = requests.get(url, headers=HEADERS, timeout=10)
     r.raise_for_status()
@@ -115,44 +113,71 @@ def fetch_notice_detail(url: str) -> dict:
     }
 
 
-# def show_notices():
-#     st.subheader("공지사항")
-#     with st.spinner("목록 불러오는 중..."):
-#         df = fetch_notices()
-#     st.dataframe(df, use_container_width=True, hide_index=True)
+# 표, 텍스트, 사진 다 되는데 사진 비율이 안 맞음
+# def fetch_notice_detail(url: str) -> dict:
+#     r = requests.get(url, headers=HEADERS, timeout=10)
+#     r.raise_for_status()
+#     s = BeautifulSoup(r.text, "html.parser")
 
-#     titles = df["제목"].tolist()
-#     choice = st.selectbox("공지사항 자세히 보기", options=["선택 안 함"] + titles)
-#     if choice != "선택 안 함":
-#         url = df.loc[df["제목"] == choice, "링크"].iloc[0]
-#         with st.spinner("상세 불러오는 중..."):
-#             d = fetch_notice_detail(url)
+#     # 본문 영역
+#     content = s.select_one(".boardContent")
+#     if not content:
+#         content = (
+#             s.select_one(".board-view .board-txt") or
+#             s.select_one(".bbs_view .view_con") or
+#             s.select_one(".contents") or
+#             s.select_one("article") or
+#             s.select_one("#content")
+#         )
 
-#         st.markdown(f"### {choice}")
-#         st.markdown(d["body"] or "(본문을 찾지 못했습니다)")
+#     # 이미지 src를 절대 URL로 변환
+#     if content:
+#         for img in content.find_all("img"):
+#             src = img.get("src")
+#             if src:
+#                 img["src"] = urljoin(BASE_URL, src)
 
-#         # addFiles 안의 첨부파일만 추출
-#         soup = BeautifulSoup(d["html"], "html.parser")
-#         addfiles_links = [a["href"] for a in soup.select("ul.addFiles a")]
+#     # HTML 그대로 저장 (표 포함)
+#     html_content = str(content) if content else ""
 
-#         cjaqn = True
-#         for a in d["attachments"]:
-#             if a["url"] in addfiles_links and "개인정보/비밀번호 관리" not in a["name"]:
-#                 if cjaqn:
-#                     st.markdown("**첨부:**")
-#                     cjaqn = False
-#                 st.write(f"- [{a['name']}]({a['url']})")
+#     # 텍스트 + 이미지 처리
+#     body_parts = []
+#     if content:
+#         for img in content.find_all("img"):
+#             body_parts.append(f"![이미지]({img['src']})")
 
-#     if st.button("공지사항 새로고침"):
-#         fetch_notices.clear()
-#         st.rerun()
+#         text_only = clean_notice_content(content)
+#         if text_only:
+#             body_parts.append(text_only)
+#     body_text = "\n".join(body_parts)
 
-#     st.divider()
-#     if st.button("캐시 지우고 전체 새로고침"):
-#         st.cache_data.clear()
-#         st.success("앱 캐시를 모두 지웠습니다. 다시 로딩합니다.")
-#         time.sleep(1)
-#         st.rerun()
+#     # 첨부파일 처리
+#     atts = []
+#     for a in s.select('a[href]'):
+#         href = a["href"]
+#         if any(k in href.lower() for k in ["download", "attach", "file", "files"]):
+#             atts.append({"name": a.get_text(strip=True), "url": urljoin(BASE_URL, href)})
+
+#     seen = set()
+#     attachments = []
+#     for x in atts:
+#         if x["url"] not in seen:
+#             seen.add(x["url"])
+#             attachments.append(x)
+
+#     title = (s.select_one("h3, h2, .title, .board-tit") or content)
+#     title_text = title.get_text(strip=True) if title else ""
+
+#     return {
+#         "url": url,
+#         "title": title_text,
+#         "body": body_text,             # Markdown용 텍스트 + 이미지
+#         "attachments": attachments,    # 첨부파일 리스트
+#         "html": r.text,                # 페이지 전체 HTML
+#         "html_content": html_content   # 표 + 본문 HTML
+#     }
+
+
 
 def show_notices():
     st.subheader("공지사항")
@@ -168,6 +193,7 @@ def show_notices():
             d = fetch_notice_detail(url)
 
         st.markdown(f"### {choice}")
+        # st.markdown(d["html_content"], unsafe_allow_html=True)
         st.markdown(d["body"] or "(본문을 찾지 못했습니다)")
 
         # addFiles 안의 첨부파일만 추출
@@ -186,16 +212,19 @@ def show_notices():
             for a in filtered_attachments:
                 st.write(f"- [{a['name']}]({a['url']})")
 
-    if st.button("공지사항 새로고침"):
-        fetch_notices.clear()
-        st.rerun()
+    # if st.button("공지사항 새로고침"):
+    #     fetch_notices.clear()
+    #     st.rerun()
 
-    st.divider()
-    if st.button("캐시 지우고 전체 새로고침"):
-        st.cache_data.clear()
-        st.success("앱 캐시를 모두 지웠습니다. 다시 로딩합니다.")
-        time.sleep(1)
-        st.rerun()
+    # st.divider()
+    # if st.button("캐시 지우고 전체 새로고침"):
+    #     st.cache_data.clear()
+    #     st.success("앱 캐시를 모두 지웠습니다. 다시 로딩합니다.")
+    #     time.sleep(1)
+    #     st.rerun()
+
+
+
 
 
 def clean_notice_content(content):
