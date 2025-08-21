@@ -5,6 +5,7 @@ from urllib.parse import urljoin
 import pandas as pd
 import streamlit as st
 import re
+import json
 
 BASE_URL = "https://library.sogang.ac.kr"
 NOTICE_URL = "https://library.sogang.ac.kr/bbs/list/1"
@@ -233,3 +234,36 @@ def clean_notice_content(content):
     text = content.get_text()
     clean_text = re.sub(r'\n{3,}', '\n\n', text)
     return clean_text.strip()
+
+def create_notices_json(file_path="database/notices.json"):
+    """
+    크롤링한 공지사항 목록과 상세 내용을 JSON 파일로 저장합니다.
+    """
+    print("공지사항 목록을 가져오는 중...")
+    notice_df = fetch_notices()
+    
+    if notice_df.empty:
+        print("가져올 공지사항이 없습니다.")
+        return
+
+    all_notices = []
+    for _, row in notice_df.iterrows():
+        url = row["링크"]
+        try:
+            print(f"상세 내용 가져오는 중: {url}")
+            notice_detail = fetch_notice_detail(url)
+            all_notices.append({
+                "source": notice_detail["url"],
+                "title": notice_detail["title"],
+                "content": notice_detail["body"]
+            })
+        except Exception as e:
+            print(f"상세 내용 가져오기 실패: {url}, 오류: {e}")
+            continue
+
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(all_notices, f, ensure_ascii=False, indent=4)
+    print(f"공지사항 데이터가 '{file_path}'에 저장되었습니다.")
+
+if __name__ == "__main__":
+    create_notices_json()
