@@ -154,8 +154,8 @@ def get_rag_chain() -> Runnable:
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
-def main():
 
+def main():
     if not os.path.exists("faiss_index"):
         json_file = "database/test_data.json"
         json_document = json_to_documents(json_file)
@@ -163,50 +163,45 @@ def main():
         save_to_vector_store(smaller_documents)
 
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
-
-    left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
-    with left_column:
-        st.header("로욜라도서관 FAQ 챗봇")
-        # json_file = st.file_uploader("JSON Uploader", type="json")
-        # button = st.button("JSON 업로드하기")
-        # if json_file and button:
-        #     with st.spinner("JSON 문서 저장 중"):
-        #         json_path = save_uploadedfile(json_file)
-        #         json_document = json_to_documents(json_path)
-        #         smaller_documents = chunk_documents(json_document)
-        #         save_to_vector_store(smaller_documents)
-        user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
-                                    placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
+    st.header("로욜라도서관 FAQ 챗봇")
     
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
+
+    left_column, right_column = st.columns([1, 1])
+
+    with left_column:
+        for msg in st.session_state.chat_history:
+            st.chat_message(msg["role"]).write(msg["content"])
+
+    with right_column:
+        show_notices()
+
+    user_question = st.chat_input("로욜라 도서관에 대해서 질문해 주세요")
+
+    # 수정된 코드 (if user_question 블록)
+
     if user_question:
-        # 1) 사용자 질문 히스토리에 추가
         st.session_state.chat_history.append({"role": "user", "content": user_question})
 
-        # 2) 히스토리 윈도우를 프롬프트용 텍스트로 변환
-        history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
+        with left_column:
+            st.chat_message("user").write(user_question)
 
-        # 3) 응답 생성
+            # 로딩 메시지용 with 블록만 남김
+            with st.chat_message("assistant"):
+                message_placeholder = st.empty()
+                message_placeholder.write("🤔 답변을 불러오는 중...")
+        
+        # 이 부분에 with 블록을 사용하지 않음
+        history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
         response, context = process_question(user_question, history_text)
 
-        # 4) 어시스턴트 응답을 히스토리에 추가
+        # placeholder를 직접 업데이트
+        with left_column:
+            message_placeholder.write(response)
+            
         st.session_state.chat_history.append({"role": "assistant", "content": response})
 
-        # 5) 좌측: 대화 렌더링
-        with left_column:
-            for msg in st.session_state.chat_history[-12:]:  # 최근 12개만 표시
-                if msg["role"] == "user":
-                    st.chat_message("user").write(msg["content"])
-                else:
-                    st.chat_message("assistant").write(msg["content"])
-
-        # 6) 우측: 근거 문서
-        with right_column:
-            show_notices()
-
-            for document in context:
-                with st.expander("관련 문서"):
-                    st.text(document.page_content)
-                    st.text(document.metadata.get('url', ''))
 
 if __name__ == "__main__":
     main()
