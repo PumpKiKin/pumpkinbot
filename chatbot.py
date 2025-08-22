@@ -57,33 +57,55 @@ def save_uploadedfile(uploadedfile: UploadedFile) -> str :
     return file_path
 
 ## 2: 저장된 JSON 파일을 Document로 변환
-def json_to_documents(json_path:str) -> List[Document]:
-    with open(json_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
+def json_to_documents(json_files):
+    """
+    여러 JSON 파일의 데이터를 문서 형태로 변환합니다.
+    """
     documents = []
-    for i, item in enumerate(data):
-        content = item.get("description", "")
-        
-         # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
-        if isinstance(content, list):
-            content = "\n".join(
-                [elem if isinstance(elem, str) else json.dumps(elem, ensure_ascii=False) for elem in content]
-            )
-        # dice 처리: key: value 형식으로 변환
-        elif isinstance(content, dict):
-            content = "\n".join(f"{key}: {value}" for key, value in content.items())
-
-        # metadata 불러오기(.json의 구조를 참고해야 함)
-        metadata = {
-            "category": item.get("category", ""),
-            "subcategory": item.get("subcategory", ""),
-            "title": item.get("title", ""),
-            "url": item.get("url", ""),
-        }
-        documents.append(Document(page_content=content, metadata=metadata))
-
+    for json_file in json_files:
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            
+            for item in data:
+                # 공지사항 데이터를 RAG 문서로 변환
+                document_content = f"제목: {item.get('title', '')}\n내용: {item.get('content', '')}"
+                
+                # 메타데이터에 원본 소스 정보 추가
+                metadata = {"source": item.get("source", json_file)}
+                
+                documents.append(Document(page_content=document_content, metadata=metadata))
+        except FileNotFoundError:
+            print(f"파일을 찾을 수 없습니다: {json_file}")
+            continue
     return documents
+# def json_to_documents(json_path:str) -> List[Document]:
+#     with open(json_path, 'r', encoding='utf-8') as f:
+#         data = json.load(f)
+
+#     documents = []
+#     for i, item in enumerate(data):
+#         content = item.get("description", "")
+        
+#          # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
+#         if isinstance(content, list):
+#             content = "\n".join(
+#                 [elem if isinstance(elem, str) else json.dumps(elem, ensure_ascii=False) for elem in content]
+#             )
+#         # dice 처리: key: value 형식으로 변환
+#         elif isinstance(content, dict):
+#             content = "\n".join(f"{key}: {value}" for key, value in content.items())
+
+#         # metadata 불러오기(.json의 구조를 참고해야 함)
+#         metadata = {
+#             "category": item.get("category", ""),
+#             "subcategory": item.get("subcategory", ""),
+#             "title": item.get("title", ""),
+#             "url": item.get("url", ""),
+#         }
+#         documents.append(Document(page_content=content, metadata=metadata))
+
+#     return documents
 
 ## 3: Document를 더 작은 document로 변환
 def chunk_documents(documents: List[Document]) -> List[Document]:
@@ -157,9 +179,12 @@ def natural_sort_key(s):
 
 def main():
     if not os.path.exists("faiss_index"):
-        json_file = "database/test_data.json"
-        json_document = json_to_documents(json_file)
-        smaller_documents = chunk_documents(json_document)
+        json_files = ["database/test_data.json", "database/notices.json"]
+        all_documents = json_to_documents(json_files)
+        smaller_documents = chunk_documents(all_documents)
+        # json_file = "database/test_data.json"
+        # json_document = json_to_documents(json_file)
+        #smaller_documents = chunk_documents(json_document)
         save_to_vector_store(smaller_documents)
 
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
@@ -195,7 +220,14 @@ def main():
         # 이 부분에 with 블록을 사용하지 않음
         history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
         response, context = process_question(user_question, history_text)
+        
+        with right_column:
+            for document in context:
+                    with st.expander("관련 문서"):
+                        st.text(document.page_content)
+                        st.text(document.metadata.get('url', ''))
 
+                        
         # placeholder를 직접 업데이트
         with left_column:
             message_placeholder.write(response)

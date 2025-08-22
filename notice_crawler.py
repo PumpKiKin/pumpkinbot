@@ -235,6 +235,41 @@ def clean_notice_content(content):
     clean_text = re.sub(r'\n{3,}', '\n\n', text)
     return clean_text.strip()
 
+# def create_notices_json(file_path="database/notices.json"):
+#     """
+#     크롤링한 공지사항 목록과 상세 내용을 JSON 파일로 저장합니다.
+#     """
+#     print("공지사항 목록을 가져오는 중...")
+#     notice_df = fetch_notices()
+    
+#     if notice_df.empty:
+#         print("가져올 공지사항이 없습니다.")
+#         return
+
+#     all_notices = []
+#     for _, row in notice_df.iterrows():
+#         url = row["링크"]
+#         try:
+#             print(f"상세 내용 가져오는 중: {url}")
+#             notice_detail = fetch_notice_detail(url)
+#             all_notices.append({
+#                 "source": notice_detail["url"],
+#                 "title": notice_detail["title"],
+#                 "content": notice_detail["body"]
+#             })
+#         except Exception as e:
+#             print(f"상세 내용 가져오기 실패: {url}, 오류: {e}")
+#             continue
+
+#     with open(file_path, 'w', encoding='utf-8') as f:
+#         json.dump(all_notices, f, ensure_ascii=False, indent=4)
+#     print(f"공지사항 데이터가 '{file_path}'에 저장되었습니다.")
+
+
+# notice_crawler.py 파일에 추가할 코드
+
+import json
+
 def create_notices_json(file_path="database/notices.json"):
     """
     크롤링한 공지사항 목록과 상세 내용을 JSON 파일로 저장합니다.
@@ -252,11 +287,17 @@ def create_notices_json(file_path="database/notices.json"):
         try:
             print(f"상세 내용 가져오는 중: {url}")
             notice_detail = fetch_notice_detail(url)
-            all_notices.append({
-                "source": notice_detail["url"],
-                "title": notice_detail["title"],
+            
+            # 기존 공지사항 정보에 상세 내용 추가
+            notice_data = {
+                "source": url,
+                "title": row["제목"],
+                "author": row["작성자"],
+                "date": row["작성일"],
                 "content": notice_detail["body"]
-            })
+            }
+            all_notices.append(notice_data)
+
         except Exception as e:
             print(f"상세 내용 가져오기 실패: {url}, 오류: {e}")
             continue
