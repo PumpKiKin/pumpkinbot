@@ -1,4 +1,3 @@
-## streamlit 모듈 불러오기
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
@@ -10,7 +9,10 @@ from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.schema.output_parser import StrOutputParser
+from langchain.schema import Document
+
 from typing import List
+from pathlib import Path
 import os
 import re
 import json
@@ -19,6 +21,7 @@ import json
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
 
+## 공지사항 함수 불러오기
 from notice_crawler import show_notices
 
 ############################### 0단계 : 대화 맥락 유지 관련 HISTORY 함수들 ##########################
@@ -57,78 +60,79 @@ def save_uploadedfile(uploadedfile: UploadedFile) -> str :
     return file_path
 
 ## 2: 저장된 JSON 파일을 Document로 변환
-# from langchain.docstore.document import Document
+def json_to_documents(json_files: List[str]) -> List[Document]:
+    all_documents = []
 
-# def json_to_documents(json_files: List[str]) -> List[Document]:
-#     """
-#     여러 JSON 파일의 데이터를 문서 형태로 변환합니다.
-#     """
-#     documents = []
-    
-#     for json_path in json_files:
-#         try:
-#             with open(json_path, 'r', encoding='utf-8') as f:
-#                 data = json.load(f)
+    for file_path in json_files:
+        file = Path(file_path)
+        with open(file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
 
-#             if not data:
-#                 print(f"파일에 데이터가 없습니다: {json_path}")
-#                 continue
+        # detail_data.json 처리
+        if "detail_data" in file.name:
+            for i, item in enumerate(data if isinstance(data, list) else [data]):
+                # description 처리
+                description = item.get("description", "")
+                description_text = ""
+                if isinstance(description, dict):
+                    parts = []
+                    for key, value in description.items():
+                        if isinstance(value, list):
+                            value_str = "\n".join([str(v) for v in value])
+                        else:
+                            value_str = str(value)
+                        parts.append(f"[{key}]\n{value_str}")
+                    description_text = "\n\n".join(parts)
+                elif isinstance(description, list):
+                    description_text = "\n".join([str(v) for v in description])
+                else:
+                    description_text = str(description)
 
-#             # 파일 구조에 따라 데이터 처리 방식 결정
-#             first_item = data[0]
-            
-#             # detail_data.json인 경우
-#             if "category" in first_item and "description" in first_item:
-#                 print(f"'{json_path}' 파일을 'detail' 데이터로 처리합니다.")
-#                 for item in data:
-#                     # description과 contact의 중첩된 내용을 한 줄로 평탄화
-#                     content_parts = []
-                    
-#                     description_data = item.get("description", {})
-#                     for key, value in description_data.items():
-#                         if isinstance(value, list):
-#                             content_parts.append(f"{key}: {', '.join(value)}")
-#                         else:
-#                             content_parts.append(f"{key}: {value}")
-                    
-#                     contact_data = item.get("contact", {})
-#                     for key, value in contact_data.items():
-#                         content_parts.append(f"{key}: {value}")
-                    
-#                     content = "\n".join(content_parts)
-                    
-#                     # 메타데이터 생성
-#                     metadata = {
-#                         "category": item.get("category", ""),
-#                         "subcategory": item.get("subcategory", ""),
-#                         "title": item.get("title", ""),
-#                         "tab": item.get("tab", ""),
-#                         "url": item.get("url", ""),
-#                     }
-#                     documents.append(Document(page_content=content, metadata=metadata))
+                # contact 처리
+                contact = item.get("contact", "")
+                contact_text = ""
+                if isinstance(contact, dict):
+                    parts = []
+                    for section, info in contact.items():
+                        if isinstance(info, dict):
+                            info_str = "\n".join(f"{k}: {v}" for k, v in info.items())
+                            parts.append(f"[{section}]\n{info_str}")
+                        else:
+                            parts.append(f"[{section}] {info}")
+                    contact_text = "\n\n".join(parts)
 
-#             # notices.json인 경우
-#             elif "author" in first_item and "content" in first_item:
-#                 print(f"'{json_path}' 파일을 'notice' 데이터로 처리합니다.")
-#                 for item in data:
-#                     content = f"제목: {item.get('title', '')}\n내용: {item.get('content', '')}"
-                    
-#                     metadata = {
-#                         "source": item.get("source", ""),
-#                         "title": item.get("title", ""),
-#                         "author": item.get("author", ""),
-#                         "date": item.get("date", ""),
-#                     }
-#                     documents.append(Document(page_content=content, metadata=metadata))
-            
-#             else:
-#                 print(f"알 수 없는 파일 형식입니다: {json_path}")
+                # 최종 content
+                content = description_text
+                if contact_text:
+                    content += "\n\n[연락처 정보]\n" + contact_text
 
-#         except FileNotFoundError:
-#             print(f"파일을 찾을 수 없습니다: {json_path}")
-#             continue
-            
-#     return documents
+                # metadata
+                metadata = {
+                    "category": item.get("category", ""),
+                    "subcategory": item.get("subcategory", ""),
+                    "title": item.get("title", ""),
+                    "tab": item.get("tab", ""),
+                    "url": item.get("url", ""),
+                }
+
+                all_documents.append(Document(page_content=content, metadata=metadata))
+
+        # notices.json 처리
+        elif "notices" in file.name:
+            for item in data if isinstance(data, list) else [data]:
+                metadata = {
+                    "source": item.get("source", ""),
+                    "title": item.get("title", ""),
+                    "author": item.get("author", ""),
+                    "date": item.get("date", ""),
+                }
+                content = item.get("content", "")
+                all_documents.append(Document(page_content=content, metadata=metadata))
+
+        else:
+            print(f"알 수 없는 파일 형식: {file.name}")
+
+    return all_documents
 
 
 # def json_to_documents(json_path:str) -> List[Document]:
@@ -158,65 +162,6 @@ def save_uploadedfile(uploadedfile: UploadedFile) -> str :
 #         documents.append(Document(page_content=content, metadata=metadata))
 
 #     return documents
-
-
-def json_to_documents(json_path: str) -> List[Document]:
-    with open(json_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
-    documents = []
-    for i, item in enumerate(data if isinstance(data, list) else [data]):
-        # description 처리
-        description = item.get("description", "")
-        description_text = ""
-        if isinstance(description, dict):
-            # dict 안의 key 별로 리스트를 문자열로 풀기
-            parts = []
-            for key, value in description.items():
-                if isinstance(value, list):
-                    value_str = "\n".join([str(v) for v in value])
-                else:
-                    value_str = str(value)
-                parts.append(f"[{key}]\n{value_str}")
-            description_text = "\n\n".join(parts)
-        elif isinstance(description, list):
-            description_text = "\n".join([str(v) for v in description])
-        elif isinstance(description, dict):
-            description_text = "\n".join(f"{k}: {v}" for k, v in description.items())
-        else:
-            description_text = str(description)
-
-        # contact 처리
-        contact = item.get("contact", "")
-        contact_text = ""
-        if isinstance(contact, dict):
-            parts = []
-            for section, info in contact.items():
-                if isinstance(info, dict):
-                    info_str = "\n".join(f"{k}: {v}" for k, v in info.items())
-                    parts.append(f"[{section}]\n{info_str}")
-                else:
-                    parts.append(f"[{section}] {info}")
-            contact_text = "\n\n".join(parts)
-
-        # 최종 content 구성
-        content = description_text
-        if contact_text:
-            content += "\n\n[연락처 정보]\n" + contact_text
-
-        # metadata 구성
-        metadata = {
-            "category": item.get("category", ""),
-            "subcategory": item.get("subcategory", ""),
-            "title": item.get("title", ""),
-            "tab": item.get("tab", ""),
-            "url": item.get("url", ""),
-        }
-
-        documents.append(Document(page_content=content, metadata=metadata))
-
-    return documents
-
 
 
 ## 3: Document를 더 작은 document로 변환
@@ -291,12 +236,12 @@ def natural_sort_key(s):
 
 def main():
     if not os.path.exists("faiss_index"):
-        # json_files = ["database/detail_data.json", "database/notices.json"]
-        # all_documents = json_to_documents(json_files)
-        # smaller_documents = chunk_documents(all_documents)
-        json_file = "database/detail_data.json"
-        json_document = json_to_documents(json_file)
-        smaller_documents = chunk_documents(json_document)
+        json_files = ["database/detail_data.json", "database/notices.json"]
+        all_documents = json_to_documents(json_files)
+        smaller_documents = chunk_documents(all_documents)
+        # json_file = "database/detail_data.json"
+        # json_document = json_to_documents(json_file)
+        # smaller_documents = chunk_documents(json_document)
         save_to_vector_store(smaller_documents)
 
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
