@@ -1,4 +1,3 @@
-## streamlit 모듈 불러오기
 import streamlit as st
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
@@ -10,7 +9,10 @@ from langchain_community.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain_core.runnables import Runnable
 from langchain.schema.output_parser import StrOutputParser
+from langchain.schema import Document
+
 from typing import List
+from pathlib import Path
 import os
 import re
 import json
@@ -19,8 +21,8 @@ import json
 from dotenv import load_dotenv,dotenv_values
 load_dotenv()
 
+## 공지사항 함수 불러오기
 from notice_crawler import show_notices
-
 
 ############################### 0단계 : 대화 맥락 유지 관련 HISTORY 함수들 ##########################
 # 세션 히스토리 초기화
@@ -44,6 +46,7 @@ def format_history_for_prompt(history, window_size=8):
     return "\n".join(lines)
 
 
+
 ############################### 1단계 : JSON 문서를 벡터DB에 저장하는 함수들 ##########################
 
 ## 1: 임시폴더에 파일 저장, 이제 이 함수는 사용하지 않음(데이터 업로드 X, 내장 O)
@@ -57,33 +60,109 @@ def save_uploadedfile(uploadedfile: UploadedFile) -> str :
     return file_path
 
 ## 2: 저장된 JSON 파일을 Document로 변환
-def json_to_documents(json_path:str) -> List[Document]:
-    with open(json_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+def json_to_documents(json_files: List[str]) -> List[Document]:
+    all_documents = []
 
-    documents = []
-    for i, item in enumerate(data):
-        content = item.get("description", "")
+    for file_path in json_files:
+        file = Path(file_path)
+        with open(file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # detail_data.json 처리
+        if "detail_data" in file.name:
+            for i, item in enumerate(data if isinstance(data, list) else [data]):
+                # description 처리
+                description = item.get("description", "")
+                description_text = ""
+                if isinstance(description, dict):
+                    parts = []
+                    for key, value in description.items():
+                        if isinstance(value, list):
+                            value_str = "\n".join([str(v) for v in value])
+                        else:
+                            value_str = str(value)
+                        parts.append(f"[{key}]\n{value_str}")
+                    description_text = "\n\n".join(parts)
+                elif isinstance(description, list):
+                    description_text = "\n".join([str(v) for v in description])
+                else:
+                    description_text = str(description)
+
+                # contact 처리
+                contact = item.get("contact", "")
+                contact_text = ""
+                if isinstance(contact, dict):
+                    parts = []
+                    for section, info in contact.items():
+                        if isinstance(info, dict):
+                            info_str = "\n".join(f"{k}: {v}" for k, v in info.items())
+                            parts.append(f"[{section}]\n{info_str}")
+                        else:
+                            parts.append(f"[{section}] {info}")
+                    contact_text = "\n\n".join(parts)
+
+                # 최종 content
+                content = description_text
+                if contact_text:
+                    content += "\n\n[연락처 정보]\n" + contact_text
+
+                # metadata
+                metadata = {
+                    "category": item.get("category", ""),
+                    "subcategory": item.get("subcategory", ""),
+                    "title": item.get("title", ""),
+                    "tab": item.get("tab", ""),
+                    "url": item.get("url", ""),
+                }
+
+                all_documents.append(Document(page_content=content, metadata=metadata))
+
+        # notices.json 처리
+        elif "notices" in file.name:
+            for item in data if isinstance(data, list) else [data]:
+                metadata = {
+                    "source": item.get("source", ""),
+                    "title": item.get("title", ""),
+                    "author": item.get("author", ""),
+                    "date": item.get("date", ""),
+                }
+                content = item.get("content", "")
+                all_documents.append(Document(page_content=content, metadata=metadata))
+
+        else:
+            print(f"알 수 없는 파일 형식: {file.name}")
+
+    return all_documents
+
+
+# def json_to_documents(json_path:str) -> List[Document]:
+#     with open(json_path, 'r', encoding='utf-8') as f:
+#         data = json.load(f)
+
+#     documents = []
+#     for i, item in enumerate(data):
+#         content = item.get("description", "")
         
-        # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
-        if isinstance(content, list):
-            content = "\n".join(
-                [elem if isinstance(elem, str) else json.dumps(elem, ensure_ascii=False) for elem in content]
-            )
-        # dice 처리: key: value 형식으로 변환
-        elif isinstance(content, dict):
-            content = "\n".join(f"{key}: {value}" for key, value in content.items())
+#          # list 처리: 내부에 dict가 있는 경우를 포함하여 문자열로 변환
+#         if isinstance(content, list):
+#             content = "\n".join(
+#                 [elem if isinstance(elem, str) else json.dumps(elem, ensure_ascii=False) for elem in content]
+#             )
+#         # dice 처리: key: value 형식으로 변환
+#         elif isinstance(content, dict):
+#             content = "\n".join(f"{key}: {value}" for key, value in content.items())
 
-        # metadata 불러오기(.json의 구조를 참고해야 함)
-        metadata = {
-            "category": item.get("category", ""),
-            "subcategory": item.get("subcategory", ""),
-            "title": item.get("title", ""),
-            "url": item.get("url", ""),
-        }
-        documents.append(Document(page_content=content, metadata=metadata))
+#         # metadata 불러오기(.json의 구조를 참고해야 함)
+#         metadata = {
+#             "category": item.get("category", ""),
+#             "subcategory": item.get("subcategory", ""),
+#             "title": item.get("title", ""),
+#             "url": item.get("url", ""),
+#         }
+#         documents.append(Document(page_content=content, metadata=metadata))
 
-    return documents
+#     return documents
+
 
 ## 3: Document를 더 작은 document로 변환
 def chunk_documents(documents: List[Document]) -> List[Document]:
@@ -123,6 +202,7 @@ def process_question(user_question, history_text):
         "context": retrieve_docs,
         "history": history_text
     })
+
     return response, retrieve_docs
 
 
@@ -135,10 +215,13 @@ def get_rag_chain() -> Runnable:
     template = """
     다음의 컨텍스트를 활용해서 질문에 답변해줘
     - 질문에 대한 응답을 해줘
-    - 5-10줄 이내로 해줘
+    - 10줄 이내로 해줘
     - 곧바로 응답결과를 말해줘
-
+    - 친절하게 말해줘
+    
     이전대화 : {history}
+
+    컨텍스트 : {context}
 
     질문: {question}
 
@@ -156,62 +239,62 @@ def natural_sort_key(s):
     return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', s)]
 
 def main():
-    # 공지사항 일단 보여주기
-    # show_notices()
-
     if not os.path.exists("faiss_index"):
-        #json_file = "database/test_data.json"
-        json_file = "database/detail_data.json"
-        json_document = json_to_documents(json_file)
-        smaller_documents = chunk_documents(json_document)
+        json_files = ["database/detail_data.json", "database/notices.json"]
+        all_documents = json_to_documents(json_files)
+        smaller_documents = chunk_documents(all_documents)
+        # json_file = "database/detail_data.json"
+        # json_document = json_to_documents(json_file)
+        # smaller_documents = chunk_documents(json_document)
         save_to_vector_store(smaller_documents)
 
     st.set_page_config("로욜라도서관 FAQ 챗봇", layout="wide")
+    st.header("로욜라도서관 FAQ 챗봇")
+    
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
 
-    left_column, right_column = st.columns([1, 1]) # 화면 왼쪽에 채팅, 오른쪽에 참고 텍스트
+    left_column, right_column = st.columns([1, 1])
+
     with left_column:
-        st.header("로욜라도서관 FAQ 챗봇")
-        # json_file = st.file_uploader("JSON Uploader", type="json")
-        # button = st.button("JSON 업로드하기")
-        # if json_file and button:
-        #     with st.spinner("JSON 문서 저장 중"):
-        #         json_path = save_uploadedfile(json_file)
-        #         json_document = json_to_documents(json_path)
-        #         smaller_documents = chunk_documents(json_document)
-        #         save_to_vector_store(smaller_documents)
-        user_question = st.text_input("로욜라 도서관에 대해서 질문해 주세요", 
-                                    placeholder="방학 중 도서관 이용 시간은 어떻게 되나요?")
-            
-        if user_question:
-            # 1) 사용자 질문 히스토리에 추가
-            st.session_state.chat_history.append({"role": "user", "content": user_question})
+        for msg in st.session_state.chat_history:
+            st.chat_message(msg["role"]).write(msg["content"])
 
-            # 2) 히스토리 윈도우를 프롬프트용 텍스트로 변환
-            history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
-
-            # 3) 응답 생성
-            response, context = process_question(user_question, history_text)
-
-            # 4) 어시스턴트 응답을 히스토리에 추가
-            st.session_state.chat_history.append({"role": "assistant", "content": response})
-
-            # 5) 좌측: 대화 렌더링
-            with left_column:
-                for msg in st.session_state.chat_history[-12:]:  # 최근 12개만 표시
-                    if msg["role"] == "user":
-                        st.chat_message("user").write(msg["content"])
-                    else:
-                        st.chat_message("assistant").write(msg["content"])
-
-            # 6) 근거 문서
-            for document in context:
-                with st.expander("관련 문서"):
-                    st.text(document.page_content)
-                    st.text(document.metadata.get('url', ''))
-    # 7) 우측: 공지사항
-    with right_column:    
+    with right_column:
         show_notices()
+
+    user_question = st.chat_input("로욜라 도서관에 대해서 질문해 주세요")
+
+    # 수정된 코드 (if user_question 블록)
+
+    if user_question:
+        st.session_state.chat_history.append({"role": "user", "content": user_question})
+
+        with left_column:
+            st.chat_message("user").write(user_question)
+
+            # 로딩 메시지용 with 블록만 남김
+            with st.chat_message("assistant"):
+                message_placeholder = st.empty()
+                message_placeholder.write("🤔 답변을 불러오는 중...")
         
+        # 이 부분에 with 블록을 사용하지 않음
+        history_text = format_history_for_prompt(st.session_state.chat_history, window_size=8)
+        response, context = process_question(user_question, history_text)
+        
+        with right_column:
+            for document in context:
+                    with st.expander("관련 문서"):
+                        st.text(document.page_content)
+                        st.text(document.metadata.get('url', ''))
+
+                        
+        # placeholder를 직접 업데이트
+        with left_column:
+            message_placeholder.write(response)
+            
+        st.session_state.chat_history.append({"role": "assistant", "content": response})
+
 
 if __name__ == "__main__":
     main()
