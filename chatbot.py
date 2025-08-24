@@ -166,7 +166,7 @@ def json_to_documents(json_files: List[str]) -> List[Document]:
 
 ## 3: Document를 더 작은 document로 변환
 def chunk_documents(documents: List[Document]) -> List[Document]:
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=200)
     return text_splitter.split_documents(documents)
 
 ## 4: Document를 벡터DB로 저장
@@ -228,7 +228,7 @@ def get_rag_chain() -> Runnable:
     응답:"""
 
     custom_rag_prompt = PromptTemplate.from_template(template)
-    model = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+    model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
     return custom_rag_prompt | model | StrOutputParser() # pipe로 관리하여 in-out 쉽게 넣어주기
 
 
